@@ -19,8 +19,8 @@ Mount the folder where your mkdocs.yml resides as a volume into /docs:
 
     `docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build`
 
-* Deploy documentation to GitHub Pages
+* Deploy documentation to GitHub Pages (don't do this in docker)
 
-    `docker run --rm -it -v ~/.ssh:/root/.ssh -v ${PWD}:/docs squidfunk/mkdocs-material gh-deploy`
+    `mkdocs gh-deploy --clean`
 
 For detailed installation instructions and a demo, visit http://squidfunk.github.io/mkdocs-material/
