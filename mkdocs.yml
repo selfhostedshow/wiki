@@ -8,11 +8,12 @@ theme:
     code: 'Ubuntu Mono'
 nav:
   - Home: index.md
-  - Basics: basics/getting-started.md
-  - Home Automation: home-automation/getting-started.md
-    - Home Assistant: home-automation/home-assistant.md
+  - Basics: 'basics/getting-started.md'
+  - 'Home Automation':
+    - 'Getting Started': 'home-automation/getting-started.md'
+    - 'Home Assistant': 'home-automation/home-assistant.md'
     - Tasmota: home-automation/tasmota.md
-  - Apps: self-hosted-apps/getting-started.md
+  - Apps:
     - Wikis: self-hosted-apps/wikis.md
 extra:
   social:
