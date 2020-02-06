@@ -1,0 +1,40 @@
+site_name: Self-Hosted Show Wiki
+theme:
+  name: 'material'
+  palette:
+    primary: 'amber'
+    accent: 'orange'
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+nav:
+  - Home: index.md
+  - Basics: basics/getting-started.md
+  - Home Automation: home-automation/getting-started.md
+    - Home Assistant: home-automation/home-assistant.md
+    - Tasmota: home-automation/tasmota.md
+  - Apps: self-hosted-apps/getting-started.md
+    - Wikis: self-hosted-apps/wikis.md
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/selfhostedshow'
+    - type: 'twitter'
+      link: 'https://twitter.com/selfhostedshow'
+    - type: 'fire'
+      link: 'https://fireside.com'
+    - type: 'microphone'
+      link: 'https://pocketcasts.com'
+    - type: 'graduation-cap'
+      link: 'https://linuxacademy.com'
+    - type: 'linux'
+      link: 'https://jupiterbroadcasting.com'
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+plugins:
+  - search
+  - minify:
+      minify_html: true      
