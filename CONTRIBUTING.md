@@ -15,7 +15,7 @@ What we are not trying to do:
 - Be another large list of self-hosted tools. See [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) for a comprehensive list of self-hosted applications.
 - Be a hub for script kitties. People should _learn_ from documentation here not just come here to copy/paste. Snippets are important but should be documented properly.
 - Insecure, sloppy or any undesirable systems administration practices such as:
-  - Insecure practices such as executing remote code by `curl`-ing an untrusted script and piping it to `sudo bash`: `curl https://example.com/awesomescript.sh | sudo bash`
+  - Executing remote code by `curl`-ing an untrusted script and piping it to `sudo bash`: `curl https://example.com/awesomescript.sh | sudo bash`
   - Installing additional bloat within a Docker container
   - Etc.
 
