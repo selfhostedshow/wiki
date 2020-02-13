@@ -43,6 +43,24 @@ Any images embedded in an article should be placed within a folder called `image
 Any other relevant resources (scripts, compose files, Ansible playbooks, etc.) pertaining to the application should be placed within the same folder the relevant application is using.
 
 
+## Directory Layout:
+
+The `docs` folder in the root of the repository is where wiki content should be placed.
+
+The following example directory layout should be adhered to when contributing:
+
+`docs/category/application.md`
+
+
+For example, if I wanted to add an article for Home Assistant, my layout could be this:
+
+`docs/home-automation/home-assistant.md`
+
+This would assume that the `home-assistant.md` entry belongs in the `home-automation` category. Look at the existing category directories before attempting to create a completely new category directory.
+
+
+
+
 ## How to Contribute
 
 Please at least try to understand the objectives of this wiki and the organizational layout of the repository before attempting to contribute. 
