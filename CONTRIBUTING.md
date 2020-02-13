@@ -17,11 +17,29 @@ What we are not trying to do:
 
 
 
+## Directory Layout:
+
+The `docs` folder in the root of the repository is where wiki content should be placed.
+
+The following example directory layout should be adhered to when contributing:
+
+`docs/category/application.md`
+
+
+For example, if I wanted to add an article for Home Assistant, my layout could be this:
+
+`docs/home-automation/home-assistant.md`
+
+This would assume that the `home-assistant.md` entry belongs in the `home-automation` category. Look at the existing category directories before attempting to create a completely new category directory.
+
+
+
+
 ## How to Contribute
 
-Please at least try to understand the objectives of this wiki and what we are trying to accomplish before attempting to contribute. 
+Please at least try to understand the objectives of this wiki and the organizational layout of the repository before attempting to contribute. 
 
-This Wiki is intended to be for _anyone_ -- regardless of expertise -- interested in self-hosting. We encourage anyone interested in contributing to follow these simple steps:
+This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is interested in self-hosting. We encourage anyone interested in contributing to follow these simple steps:
 
 - Fork this repository.
 - Make changes as desired to the code in the repository and commit them to your fork.
