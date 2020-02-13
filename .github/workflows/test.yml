@@ -10,4 +10,4 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build site
-      run: docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build --verbose
+      run: docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material build --verbose
