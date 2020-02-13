@@ -6,15 +6,6 @@ theme:
     accent: 'orange'
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
-nav:
-  - Home: index.md
-  - Basics: 'basics/getting-started.md'
-  - 'Home Automation':
-    - 'Getting Started': 'home-automation/getting-started.md'
-    - 'Home Assistant': 'home-automation/home-assistant.md'
-    - Tasmota: home-automation/tasmota.md
-  - Apps:
-    - Wikis: self-hosted-apps/wikis.md
 extra:
   social:
     - type: 'github'
@@ -38,4 +29,4 @@ markdown_extensions:
 plugins:
   - search
   - minify:
-      minify_html: true      
+      minify_html: true
