@@ -30,3 +30,5 @@ plugins:
   - search
   - minify:
       minify_html: true
+
+strict: true
