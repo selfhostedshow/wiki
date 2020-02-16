@@ -18,3 +18,4 @@ The main ways of installing Tasmota on a device are:
 - Flashing over serial.
 OTA is the quickest, if your device supports it. OTA requires a device that has a firmware update mechanism with a "vulnerabulity", so a spoofing update network can upload tasmota, instead of the manufacturers own firmware.
 The Tuya-Convert tool allows many devices labled "Tuya - Smart Life".
+![Tuya Smart Life, logo, and title.](images/Tuya_Smart_Life.jpg)
