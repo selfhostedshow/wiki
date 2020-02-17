@@ -4,7 +4,8 @@ Welcome to the Self Hosting basics section of the wiki. Here you will find a bun
 
 Things here might include:
 
-* Where to start
+* Where to start<br>
+  [SmartHomeBeginner](https://www.smarthomebeginner.com/) - How to setup your own complete home server using docker-compose.
 * Hardware
 * docker + docker-compose 101
   * Links to docs.linuxserver.io
