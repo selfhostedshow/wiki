@@ -16,12 +16,10 @@ What we are not trying to do:
 - Be a hub for script kitties. People should _learn_ from documentation here not just come here to copy/paste. Snippets are important but should be documented properly.
 - Insecure, sloppy or any undesirable systems administration practices such as:
   - Executing remote code by `curl`-ing an untrusted script and piping it to `sudo bash`: `curl https://example.com/awesomescript.sh | sudo bash`
-  - Installing additional bloat within a Docker container
-  - Etc.
+  - Installing additional bloat within a container
 
 
-We want to encourage the use of dev/ops tools such as Docker, Ansible, SALT Stack, etc. for increased ease of use and for automating/standardizing as much as possible.
-
+We want to encourage the usage of Devops tooling such as config management, containerisation and automation. This will improve the ease of use for all and increase code reuse amongst the community ultimately leading to an easier time for all.
 
 ## Directory Layout:
 
@@ -29,14 +27,20 @@ The `docs` folder in the root of the repository is where wiki content should be 
 
 The following example directory layout should be adhered to when contributing:
 
-`docs/category/application/application.md`
+`docs/category/application/index.md`
+
+Additional, more specific articles relating to that same topic should be named differently:
+
+`docs/category/application/specific-topic.md` 
+
+For example, if I wanted to add a brand new, generic article for Home Assistant, my layout would be this:
+
+`docs/home-automation/home-assistant/index.md`
 
 
-For example, if I wanted to add an article for Home Assistant, my layout could be this:
+For an additional article that is more specific I could name it like so:
 
-`docs/home-automation/home-assistant/home-assistant.md`
-
-This would assume that the `home-assistant.md` entry belongs in the `home-automation` category. Look at the existing category directories before attempting to create a completely new category directory.
+`docs/home-automation/home-assistant/docker-deployment.md`
 
 
 Any images embedded in an article should be placed within a folder called `images` within the same directory:
@@ -44,7 +48,27 @@ Any images embedded in an article should be placed within a folder called `image
 `docs/home-automation/home-assistant/images/example.png`
 
 
-Any other relevant resources (scripts, compose files, Ansible playbooks, etc.) pertaining to the application should be placed within the same folder the relevant application is using.
+Any other relevant resources (scripts, snippets, etc.) pertaining to the application should be placed within the same folder the relevant application is using.
+
+
+## Build locally
+
+- Clone the repository and `cd` into the directory:
+
+```bash
+git clone https://github.com/selfhostedshow/wiki ~/wiki &&\
+	cd ~/wiki
+```
+
+- Make changes as necessary.
+
+- Start development server on http://localhost:8000:
+
+```bash
+docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+```
+
+- In your browser go to http://localhost:8000.
 
 
 ## How to Contribute
@@ -53,10 +77,14 @@ Please at least try to understand the objectives of this wiki and the organizati
 
 This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is interested in self-hosting. We encourage anyone interested in contributing to follow these simple steps:
 
-- Fork this repository.
-- Make changes as desired to the code in the repository and commit them to your fork.
-- Follow the build instructions in [BUILD.md](BUILD.md). Check that your added content renders properly in your local build.
-- Submit a pull request. The more detail the better in your comments with your pull request.
+- Fork this repository in Github's web interface by pressing the fork icon..
+- Clone your fork and `cd` into the new directory: `git clone https://github.com/username/wiki && cd wiki`
+- Check out the "staging" branch: `git checkout -b staging`
+- Make changes as desired to the files in the repository on your machine.
+- Add the changed files to your commit and commit the changes to your fork: `git add file1.md file2.md && git commit -m 'updated x,y,z'`
+- Push your commit to your fork: `git push origin staging`
+- Follow the build instructions above (without cloning your fork again). Check that your added content renders properly in your local build.
+- On Github's web interface go to your fork and set the branch to "staging". Then submit a pull request by selecting "New Pull Request".
 
 
 ## Other Resources
