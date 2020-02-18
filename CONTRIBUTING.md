@@ -53,6 +53,14 @@ Any other relevant resources (scripts, snippets, etc.) pertaining to the applica
 
 ## Build locally
 
+- Install Docker: 
+  - [Windows 10](https://docs.docker.com/docker-for-windows/install/)
+  - [MacOS](https://docs.docker.com/docker-for-mac/install/)
+  - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+  - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+  - [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+  - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
 - Clone the repository and `cd` into the directory:
 
 ```bash
