@@ -3,7 +3,7 @@
 
 ## Objectives of This Wiki
 
-In order to contribute well, you need to understand what the objectives are behind this wiki.
+To contribute well, you need to understand what the objectives are behind this wiki.
 
 What we are trying to create:
 - A compilation of tools, tips and tricks for self-hosting specific applications.
