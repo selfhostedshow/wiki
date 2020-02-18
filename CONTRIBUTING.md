@@ -14,7 +14,7 @@ What we are trying to create:
 What we are not trying to do:
 - Be another large list of self-hosted tools. See [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) for a comprehensive list of self-hosted applications.
 - Be a hub for script kitties. People should _learn_ from documentation here not just come here to copy/paste. Snippets are important but should be documented properly.
-- Insecure, sloppy or any undesirable systems administration practices such as:
+- Promote or encourage insecure, sloppy or any undesirable systems administration practices such as:
   - Executing remote code by `curl`-ing an untrusted script and piping it to `sudo bash`: `curl https://example.com/awesomescript.sh | sudo bash`
   - Installing additional bloat within a container
 
@@ -56,11 +56,9 @@ Any other relevant resources (scripts, snippets, etc.) pertaining to the applica
 - Clone the repository and `cd` into the directory:
 
 ```bash
-git clone https://github.com/selfhostedshow/wiki ~/wiki &&\
-	cd ~/wiki
+git clone https://github.com/selfhostedshow/wiki wiki &&\
+	cd wiki
 ```
-
-- Make changes as necessary.
 
 - Start development server on http://localhost:8000:
 
@@ -77,7 +75,7 @@ Please at least try to understand the objectives of this wiki and the organizati
 
 This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is interested in self-hosting. We encourage anyone interested in contributing to follow these simple steps:
 
-- Fork this repository in Github's web interface by pressing the fork icon..
+- Fork this repository in Github's web interface by pressing the fork icon.
 - Clone your fork and `cd` into the new directory: `git clone https://github.com/username/wiki && cd wiki`
 - Check out the "staging" branch: `git checkout -b staging`
 - Make changes as desired to the files in the repository on your machine.
