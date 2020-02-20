@@ -9,3 +9,7 @@ The interface is a little utilitarian but it suits scatter brains rather well.
 ## wiki.js
 
 Beautiful but complex.
+
+## bookstack
+
+Very good note taking app i.e. a personal wiki. 
