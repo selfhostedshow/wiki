@@ -1,12 +1,12 @@
-# Welcome to the Self Hosted wiki.
+# Welcome 
 
 Here you will find an [open source](link), living and breathing repository of resources that we talk about on the Self Hosted podcast. You can help us help you by submitting PRs on Github to improve this documentation or fix mistakes.
 
 ## About the show
 
-The show is your gateway to self hosting all the things.
+This wiki was created by the audience of the [Self-Hosted podcast](https://selfhosted.show). It's open to all to contribute via pull request.
 
-Discover new software to take control of cloud services and own your data. Learn how you can take steps to free yourself from the agenda of large corporates and business models designed to sell your information. We help you unlock the power of Linux and Open Source.
+The show is your gateway to self-hosting all the things. Discover new software to take control of cloud services and own your data. Learn how you can take steps to free yourself from the agenda of large corporates and business models designed to sell your information. We help you unlock the power of Linux and Open Source.
 
 ## Our other podcasts
 

@@ -1,0 +1,14 @@
+#https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+#Rules are evaluated top to bottom the last match is the winner
+
+#Editors change anything else
+* @selfhostedshow/backend
+
+#content can be approved by Editors
+/docs/ @selfhostedshow/editors
+README.md @selfhostedshow/editors
+
+
+#codeowners and license should only be changed by the wiki-admins
+CODEOWNERS @selfhostedshow/wiki-admins
+LICENSE @selfhostedshow/wiki-admins
