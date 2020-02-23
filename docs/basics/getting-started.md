@@ -8,8 +8,9 @@ The content is provided "as is" without warranty of any kind, either expressed o
 
 Things here might include:
 
-* Where to start<br>
+### Where to start<br>
   [SmartHomeBeginner](https://www.smarthomebeginner.com/) - How to setup your own complete home server using docker-compose.
-* Hardware
-* docker + docker-compose 101
-  * Links to docs.linuxserver.io
+### Hardware
+### Software
+  * [docs.linuxserver.io](https://docs.docker.com/engine/docker-overview/)
+  * [Docker](https://docs.docker.com/engine/docker-overview/) & [Docker Compose](https://docs.docker.com/compose/)
