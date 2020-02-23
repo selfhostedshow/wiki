@@ -6,23 +6,16 @@ This repository contains the backend for the [Self-Hosted](https://selfhosted.sh
 
 ## Usage
 
-Add the following line to your mkdocs.yml:
+### Start development server
 
-    theme:
-      name: 'material'
+`docker-compose up`
 
-Mount the folder where your mkdocs.yml resides as a volume into /docs:
+Then open your browser to http://localhost:8000
 
-* Start development server on http://localhost:8000
+### Build documentation
 
-    `docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material`
+Sometimes, you just want to output the HTML into a directory, rather than use the development server.
 
-* Build documentation
+`docker-compose run wiki build`
 
-    `docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build`
-
-* Deploy documentation to GitHub Pages (don't do this in docker)
-
-    `mkdocs gh-deploy --clean`
-
-For detailed installation instructions and a demo, visit http://squidfunk.github.io/mkdocs-material/
+The site will then be output into the `site/` directory
