@@ -12,5 +12,5 @@ Things here might include:
   [SmartHomeBeginner](https://www.smarthomebeginner.com/) - How to setup your own complete home server using docker-compose.
 ### Hardware
 ### Software
-  * [docs.linuxserver.io](https://docs.docker.com/engine/docker-overview/)
+  * [docs.linuxserver.io](https://docs.linuxserver.io/)
   * [Docker](https://docs.docker.com/engine/docker-overview/) & [Docker Compose](https://docs.docker.com/compose/)
