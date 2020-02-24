@@ -1,6 +1,6 @@
 name: Test
 
-on: [pull_request]
+on: [pull_request, push]
 
 jobs:
   build:
@@ -13,4 +13,4 @@ jobs:
       run: docker-compose pull
 
     - name: Build site
-      run: docker-compose run wiki build
+      run: docker-compose run wiki build -v
