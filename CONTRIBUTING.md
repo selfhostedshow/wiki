@@ -71,7 +71,7 @@ git clone https://github.com/selfhostedshow/wiki wiki &&\
 - Start development server on http://localhost:8000:
 
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
 - In your browser go to http://localhost:8000.
