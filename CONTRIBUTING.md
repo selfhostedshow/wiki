@@ -56,10 +56,10 @@ Any other relevant resources (scripts, snippets, etc.) pertaining to the applica
 - Install Docker and Docker Compose: 
   - Windows 10: [Docker](https://docs.docker.com/docker-for-windows/install/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-windows-desktop-systems)
   - MacOS: [Docker](https://docs.docker.com/docker-for-mac/install/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-macos)
-  - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
-  - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
-  - [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
-  - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - CentOS: [Docker](https://docs.docker.com/install/linux/docker-ce/centos/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - Debian: [Docker](https://docs.docker.com/install/linux/docker-ce/debian/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - Fedora: [Docker](https://docs.docker.com/install/linux/docker-ce/fedora/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - Ubuntu: [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
 
 - Clone the repository and `cd` into the directory:
 
