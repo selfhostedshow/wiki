@@ -53,13 +53,13 @@ Any other relevant resources (scripts, snippets, etc.) pertaining to the applica
 
 ## Build locally
 
-- Install Docker: 
-  - [Windows 10](https://docs.docker.com/docker-for-windows/install/)
-  - [MacOS](https://docs.docker.com/docker-for-mac/install/)
-  - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-  - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
-  - [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
-  - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+- Install Docker and Docker Compose: 
+  - Windows 10: [Docker](https://docs.docker.com/docker-for-windows/install/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-windows-desktop-systems)
+  - MacOS: [Docker](https://docs.docker.com/docker-for-mac/install/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-macos)
+  - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+  - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
 
 - Clone the repository and `cd` into the directory:
 
@@ -71,7 +71,7 @@ git clone https://github.com/selfhostedshow/wiki wiki &&\
 - Start development server on http://localhost:8000:
 
 ```bash
-docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+docker-compose up -d
 ```
 
 - In your browser go to http://localhost:8000.
