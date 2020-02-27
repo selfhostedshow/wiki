@@ -14,3 +14,6 @@ jobs:
 
     - name: Build site
       run: docker-compose run wiki build
+
+    - name: Build production container
+      run: docker build -f prod/Dockerfile .
