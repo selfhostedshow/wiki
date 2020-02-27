@@ -1,4 +1,4 @@
-# Welcome 
+# Welcome!
 
 Here you will find an [open source](link), living and breathing repository of resources that we talk about on the Self Hosted podcast. You can help us help you by submitting PRs on Github to improve this documentation or fix mistakes.
 
