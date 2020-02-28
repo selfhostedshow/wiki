@@ -1,4 +1,5 @@
 site_name: Self-Hosted Show Wiki
+site_url: https://wiki.selfhosted.show
 theme:
   name: 'material'
   palette:
