@@ -1,0 +1,7 @@
+# Camera system on chinobi Debian
+This is talked about on the start of episode 5 ZFX isn't the only option.
+He tried to use 5 wise cams on chenobi from a raspberry pi 4 and powered by debizn. As good as it sounds it failed
+slamed with only three cameras no motion sensors or anything else.
+
+# Camera system on chinobi with raspbian
+Episode 6 low cost camera system Chris fixed it with Rasbian and so its fixed but the fifth camera functions not only as a security camera but a dashcam
