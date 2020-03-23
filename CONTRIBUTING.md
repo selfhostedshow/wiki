@@ -94,6 +94,7 @@ This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is in
 - [Build the wiki locally](https://github.com/selfhostedshow/wiki/blob/master/CONTRIBUTING.md#build-locally) and check that your added content renders properly in your local build.
 - On Github's web interface go to your fork and set the branch to "dev". Then submit a pull request by selecting "New Pull Request".
 
+Not sure what to write about, take a look at our [issues](https://github.com/selfhostedshow/wiki/issues).
 
 ## Other Resources
 
