@@ -18,4 +18,4 @@ Sometimes, you just want to output the HTML into a directory, rather than use th
 
 `docker-compose run wiki build`
 
-The site will then be output into the `site/` directory 
+The site will then be output into the `site/` directory
