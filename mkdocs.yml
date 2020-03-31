@@ -20,12 +20,15 @@ extra:
       link: 'https://linuxacademy.com'
     - type: 'linux'
       link: 'https://jupiterbroadcasting.com'
+
 markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
   - toc:
       permalink: true
+  - mdx_include:
+      base_path: docs
 plugins:
   - search
   - minify:
