@@ -15,4 +15,5 @@ Once you've done this, the AP should show up almost immediately in the interface
 
 Adopt the AP and configuration for that site will be automatically applied.
 
-> Note that after adoption the SSH password will be changed from ubnt/ubnt. You can modify the post adoption Unifi SSH username and password in the controller software by enabling 'advanced features' and then configuring your desired credentials under `Site -> Device Authentication`.
+!!! note 
+    After adoption the SSH password will be changed from ubnt/ubnt. You can modify the post adoption Unifi SSH username and password in the controller software by enabling 'advanced features' and then configuring your desired credentials under `Site -> Device Authentication`.
