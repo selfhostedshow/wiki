@@ -9,7 +9,8 @@ The content is provided "as is" without warranty of any kind, either expressed o
 Things here might include:
 
 ### Where to start<br>
-  [SmartHomeBeginner](https://www.smarthomebeginner.com/) - How to setup your own complete home server using docker-compose.
+  * [Linuxserver.io - Let's Encrypt, Nginx & Reverse Proxy Starter Guide - 2019 Edition](https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/#nextcloudsubdomainreverseproxyexample) - How to get started with docker, docker-compose, nginx as reverse proxy + SSL and cloud services (Nextcloud, Plex, Ombi, Heimdall)
+  * [SmartHomeBeginner](https://www.smarthomebeginner.com/) - How to setup your own complete home server using docker-compose.
 ### Hardware
 ### Software
   * [docs.linuxserver.io](https://docs.linuxserver.io/)
