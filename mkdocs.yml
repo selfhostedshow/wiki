@@ -22,6 +22,8 @@ extra:
       link: 'https://linuxacademy.com'
     - type: 'linux'
       link: 'https://jupiterbroadcasting.com'
+    - type: 'discord'
+      link: 'https://discord.gg/n49fgkp'
 
 markdown_extensions:
   - admonition
