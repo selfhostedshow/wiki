@@ -10,19 +10,19 @@ theme:
     code: 'Ubuntu Mono'
 extra:
   social:
-    - type: 'github'
+    - icon: 'fontawesome/brands/github'
       link: 'https://github.com/selfhostedshow'
-    - type: 'twitter'
+    - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/selfhostedshow'
-    - type: 'fire'
+    - icon: 'fontawesome/solid/fire'
       link: 'https://fireside.com'
-    - type: 'microphone'
+    - icon: 'fontawesome/solid/microphone'
       link: 'https://pocketcasts.com'
-    - type: 'graduation-cap'
+    - icon: 'fontawesome/solid/graduation-cap'
       link: 'https://linuxacademy.com'
-    - type: 'linux'
+    - icon: 'fontawesome/brands/linux'
       link: 'https://jupiterbroadcasting.com'
-    - type: 'discord'
+    - icon: 'fontawesome/brands/discord'
       link: 'https://discord.gg/n49fgkp'
 
 markdown_extensions:
