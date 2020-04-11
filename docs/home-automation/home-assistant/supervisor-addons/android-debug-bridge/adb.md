@@ -2,9 +2,9 @@
 
 Requirements: 
 
- * [ADB Addon](https://github.com/hassio-addons/addon-adb/blob/v0.6.1/README.md)
+ * [ADB Addon](https://github.com/hassio-addons/addon-adb/)
 
-This guide walks you though how to configure Android Debug Bridge for controlling Android TV through [Home Assistant](https://www.home-assistant.io/)
+This guide walks you though how to configure Android Debug Bridge for controlling Android TV through [Home Assistant](https://www.home-assistant.io/).
 
 Initially you will need to install the add-on through the Home Assistant Supervisor Add-on Store. Once the Add-on is installed you will need to configure your devices as per the example below. 
 
@@ -26,8 +26,8 @@ Once the configuration is in place start the add-on and check the logs for any e
 In this example I will be using the Shield TV to enable Network debugging. 
 
 1. Enable developer options - On you Android TV, go to `Settings > About SHIELD`, scroll to the bottom and tap Build Number several times.
-2. Enable network debugging - On you device in `Settings > Developer Options` enable Network Debugging
-3. Add the following configuration to your home assistant configuration
+2. Enable network debugging - On you device in `Settings > Developer Options` enable Network Debugging.
+3. Add the following configuration to your home assistant configuration.
 
 ```YAML
 media_player:
@@ -38,16 +38,16 @@ media_player:
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
 ```
-4. Restart Home Assistant
-5. Restart `ADB` in Home Assistant
-6. Allow `Home Assistant` to access to your device, remember the check the box to always remember this device
+4. Restart Home Assistant.
+5. Restart `ADB` in Home Assistant.
+6. Allow `Home Assistant` to access to your device, remember the check the box to always remember this device.
 
 
 ## Connect to the container running ADB
 
-If you are using Home Assistant backed Ubuntu or other debian based OS this next step is done in Bash, if you are running the enclosed Home Assistant OS install the [Terminal & SSH plugin](https://github.com/home-assistant/hassio-addons/tree/master/ssh)
+If you are using Home Assistant backed Ubuntu or other debian based OS this next step is done in Bash, if you are running the enclosed Home Assistant OS install the [Terminal & SSH plugin](https://github.com/home-assistant/hassio-addons/tree/master/ssh).
 
-Open you command line `Shell` to bash into the container
+Open you command line `Shell` to bash into the container.
 
     docker exec -it addon_a0d7b954_adb /bin/bash
 
@@ -55,7 +55,7 @@ Open you command line `Shell` to bash into the container
 
 This section explains how you can query `ADB` for applications running on you `Android TV`
 
-1. Connect to ADB Shell 
+1. Connect to ADB Shell.
 
         adb -s 1.2.3.4:5555 shell
 
@@ -63,7 +63,7 @@ This section explains how you can query `ADB` for applications running on you `A
 
         pm list packages
 
-3. To filter the output based on the package name
+3. To filter the output based on the package name.
 
         pm list packages | grep com.amazon.amazonvideo.livingroom.nvidia
 
@@ -99,7 +99,7 @@ This section explains how you can query `ADB` for applications running on you `A
     com.netflix.ninja/.MainActivity
 
 
-Make a list of your applications and and the options available, you'll need this later. I have exported a few Apps below for the UK users :)
+Make a list of your applications and the options available, you'll need this later, I have exported a few Apps below as examples.
 
 
 ## Discovered App Activities
@@ -238,7 +238,7 @@ Make a list of your applications and and the options available, you'll need this
 
 ### Configuration in Home Assistant. 
 
-Create a table of values for your `Android TV` apps using the confguration below, please change the `apps` to meet your configuration
+Create a table of values for your `Android TV` apps using the confguration below, please change the `apps` to meet your configuration.
 
 ```YAML
 media_player:
@@ -333,4 +333,4 @@ script:
           command: "am start -a android.intent.action.VIEW -d -n com.silicondust.view/.App"
 ```
 
-Further working examples can be found on my [GitHub](https://github.com/noodlemctwoodle/homeassistant)
+Further working examples can be found on this [GitHub](https://github.com/noodlemctwoodle/homeassistant).
