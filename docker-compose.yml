@@ -1,0 +1,9 @@
+version: "2.4"
+
+services:
+  wiki:
+    build: .
+    volumes:
+      - .:/docs
+    ports:
+      - 8000:8000

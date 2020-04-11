@@ -1,4 +1,6 @@
 site_name: Self-Hosted Show Wiki
+site_url: https://wiki.selfhosted.show
+repo_url: https://github.com/selfhostedshow/wiki
 theme:
   name: 'material'
   palette:
@@ -8,24 +10,29 @@ theme:
     code: 'Ubuntu Mono'
 extra:
   social:
-    - type: 'github'
+    - icon: 'fontawesome/brands/github'
       link: 'https://github.com/selfhostedshow'
-    - type: 'twitter'
+    - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/selfhostedshow'
-    - type: 'fire'
+    - icon: 'fontawesome/solid/fire'
       link: 'https://fireside.com'
-    - type: 'microphone'
+    - icon: 'fontawesome/solid/microphone'
       link: 'https://pocketcasts.com'
-    - type: 'graduation-cap'
+    - icon: 'fontawesome/solid/graduation-cap'
       link: 'https://linuxacademy.com'
-    - type: 'linux'
+    - icon: 'fontawesome/brands/linux'
       link: 'https://jupiterbroadcasting.com'
+    - icon: 'fontawesome/brands/discord'
+      link: 'https://discord.gg/n49fgkp'
+
 markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
   - toc:
       permalink: true
+  - mdx_include:
+      base_path: docs
 plugins:
   - search
   - minify:
