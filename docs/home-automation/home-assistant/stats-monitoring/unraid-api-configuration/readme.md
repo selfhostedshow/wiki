@@ -67,7 +67,7 @@ Once the UnRAID-API container is up and running check the mqtt integration, you 
 ![mqtt-integration](https://github.com/selfhostedshow/wiki/tree/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/mqtt.png)
 
 ### Setting Up Sensors
-The following sensors can be configured in Home Assistant to view the following information
+The following sensors can be configured in Home Assistant to view the following information. Ensure that you change `unraid_server_name` for the `binary_sensor` of your entity in `Home Assistant`
 
  - arrayStatus
 
@@ -78,7 +78,7 @@ sensor:
       unraid_array_status:
         friendly_name: UnRAID Array Status
         value_template: >
-          {{state_attr("binary_sensor.chsunr01_server", "arrayStatus")}}
+          {{state_attr("binary_sensor.unraid_server_name", "arrayStatus")}}
 ```
 
  - arrayProtection
@@ -91,7 +91,7 @@ sensor:
       unraid_array_protection:
         friendly_name: UnRAID Array Protection
         value_template: >
-          {{state_attr("binary_sensor.chsunr01_server", "arrayProtection")}}
+          {{state_attr("binary_sensor.unraid_server_name", "arrayProtection")}}
 ```
  - diskSpace
  
@@ -102,7 +102,7 @@ sensor:
       unraid_array_space:
         friendly_name: UnRAID Array Space
         value_template: >
-          {% set state = state_attr("switch.chsunr01_array", "diskSpace") %} 
+          {% set state = state_attr("switch.unraid_server_name_array", "diskSpace") %} 
           {{ Offline if state == None else state | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
         unit_of_measurement: '%'
 ```
