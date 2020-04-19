@@ -66,8 +66,7 @@ Any other relevant resources (scripts, snippets, etc.) pertaining to the applica
 - Clone the repository and `cd` into the directory:
 
 ```bash
-git clone https://github.com/selfhostedshow/wiki wiki &&\
-	cd wiki
+git clone https://github.com/selfhostedshow/wiki && cd wiki
 ```
 
 - Start development server on http://localhost:8000:
