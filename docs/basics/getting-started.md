@@ -15,3 +15,4 @@ Things here might include:
 ### Software
   * [docs.linuxserver.io](https://docs.linuxserver.io/)
   * [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
+  * [Open Source VSCode](https://vscodium.com/) - Visual Studio Code is a source-code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring. It is highly customizable, allowing users to change the theme, keyboard shortcuts, preferences, and install extensions that add additional functionality. The source code is free and open source and released under the permissive MIT License. The compiled binaries are freeware and free for private or commercial use.
