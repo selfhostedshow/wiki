@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   wiki:
-    image: squidfunk/mkdocs-material:latest
+    build: .
     volumes:
       - .:/docs
     ports:

@@ -9,8 +9,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Pull dependencies
-      run: docker-compose pull
+    - name: Build containers
+      run: docker-compose build
 
     - name: Build site
       run: docker-compose run wiki build -v
+
+    - name: Build production container
+      run: docker build -f prod/Dockerfile .
