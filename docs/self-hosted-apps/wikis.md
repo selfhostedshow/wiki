@@ -9,3 +9,7 @@ The interface is a little utilitarian but it suits scatter brains rather well.
 ## wiki.js
 
 Beautiful but complex.
+
+## Dokuwiki
+
+Familiar user interface.  Easy to maintain and backup.  Doesn't require a database, stores articles as markdown files.
