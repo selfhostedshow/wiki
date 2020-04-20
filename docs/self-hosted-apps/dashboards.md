@@ -3,6 +3,7 @@
 As always, check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) but here are our favourites.
 
 ## Heimdall
+Heimdall is a dashboard for all of your self-hosted applications.  It features "enhanced" buttons that will display stats from your some of your self-hosted applications that feature an API.  It functions great as a browser start page.
 
 **Website:** [https://heimdall.site](https://heimdall.site)
 
