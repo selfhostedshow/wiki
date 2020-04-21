@@ -10,7 +10,7 @@ __Note__: **This document will use variables thought out make sure to change the
 ### 1. Install Git
 This section will install Git.
 
-0. Log in to the server you are going to use for Git.
+0. Log in to the your computer or server you are going to use for Git.
 
 0. Type `apt-get install git` git will be installed.
 
@@ -18,7 +18,7 @@ This section will install Git.
 
 0. Type `git config --global user.name "John Doe"` to set a username that will be used when you post to GitHub.
 
-0. Type `git config --global user.email` to verify the email address.
+0. Type `git config --list` to verify the email address and username.
 
 #### 1.1 Fork & Clone the Self-Hosted Show wiki
 This section will Fork the entire Self-Hosted Show wiki to your Github account, and then clone the fork in order to enable local editing.
@@ -107,3 +107,11 @@ This Section will "pull" from the [upstream](https://github.com/selfhostedshow/w
 0. Verify the "dev" branch is checked out type `git checkout dev`
 
 0. Type `git merge upstream/dev` to bring your local branch in to sync with the [upstream](https://github.com/selfhostedshow/wiki) repository.
+
+## Recommended Reading/Watching
+* [GitHub WorkFlow Introduction](https://guides.github.com/introduction/flow/)
+* [GitHub Training & Guides](https://www.youtube.com/githubguides)
+* [Docker Compose Cheatsheet](https://devhints.io/docker-compose) 
+* [Docker Getting Started](https://docs.docker.com/compose/gettingstarted/) 
+* [Markdown -- Github Help](https://help.github.com/en/github/writing-on-github)
+* [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
