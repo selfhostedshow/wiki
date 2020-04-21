@@ -1,5 +1,7 @@
 # Beginners Contributing Guide
 
+See the [Contribution Guidelines](/wiki/contributing/) for information and objectives of the wiki.
+
 ## Prerequisites:
 * Docker is already running in your environment
 * You have a [Github](https://github.com) account and are logged in
