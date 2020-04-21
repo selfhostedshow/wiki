@@ -12,11 +12,11 @@ This section will install Git.
 
 0. Log in to the server you are going to use for Git.
 
-0. Type `add-apt-repository ppa:git-core/ppa`.
-
 0. Type `apt-get install git` git will be installed.
 
 0. Type `git config --global user.email "email@example.com"` to set an email address that will be used when you post to GitHub.
+
+0. Type `git config --global user.name "John Doe"` to set a username that will be used when you post to GitHub.
 
 0. Type `git config --global user.email` to verify the email address.
 
@@ -27,11 +27,11 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 
 0. Click ![Fork](images/fork.PNG) in the top right to copy the "wiki" repository to your Github account.
 
-0. Log in to the server you are going to use for Git and `cd` to the directory you want to download the wiki repository to.
+0. Log in to your computer or server you are going to use for Git and `cd` to the directory you want to download the wiki repository to.
 
 0. Type `git clone https://github.com/YOURGITHUBSUSERNAME/wiki && cd wiki`.
 
-0. Verify the "dev" branch is checked out type `git checkout -b dev`.
+0. Verify the "dev" branch is checked out type `git checkout dev`.
 
 0. Type `git remote -v` to verify that the origin site was added.
     
@@ -78,9 +78,9 @@ This Section will "merge" the local changes to your fork (your github repo that 
 
 0. Type  `git push origin dev` to push your commit to your fork.
 
-0. Type your username for github:
+0. Type your username for github.
 
-0. Type your password for github:
+0. Type your password for github.
 
 #### 1.3 Make a New Pull Request on the GitHub Website
 This section will create a new pull request from your Github repo to the [Upstream](https://github.com/selfhostedshow/wiki) wiki site.
@@ -104,16 +104,6 @@ This Section will "pull" from the [upstream](https://github.com/selfhostedshow/w
 
 - Type `git fetch upstream` to fetch the branches and their respective commits from the upstream repository
 
-- Verify the "dev" branch is checked out type `git checkout -b dev`
+- Verify the "dev" branch is checked out type `git checkout dev`
 
 - git merge upstream/dev
-
-## Recommended Reading (watching)
-
-* [GitHub WorkFlow Introduction](https://guides.github.com/introduction/flow/)
-* [GitHub Training & Guides](https://www.youtube.com/githubguides)
-* [Docker Compose Cheatsheet](https://devhints.io/docker-compose) 
-* [Docker Getting Started](https://docs.docker.com/compose/gettingstarted/) 
-* [Markdown -- Github Help](https://help.github.com/en/github/writing-on-github)
-* [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-

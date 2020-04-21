@@ -16,4 +16,3 @@ Things here might include:
 ### Software
   * [docs.linuxserver.io](https://docs.linuxserver.io/)
   * [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
-  * [Plex](https://www.plex.tv/)
