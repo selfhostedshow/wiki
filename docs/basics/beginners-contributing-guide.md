@@ -100,10 +100,10 @@ This section will create a new pull request from your Github repo to the [Upstre
 ### 2 Syncing a Fork
 This Section will "pull" from the [upstream](https://github.com/selfhostedshow/wiki) repository to your local repository. **This should be done every time before you make any changes to your local wiki in order to make sure everything is in sync**.
 
--  Verify you are in the wiki directory.
+0. Verify you are in the wiki directory.
 
-- Type `git fetch upstream` to fetch the branches and their respective commits from the upstream repository
+0. Type `git fetch upstream` to fetch the branches and their respective commits from the upstream repository
 
-- Verify the "dev" branch is checked out type `git checkout dev`
+0. Verify the "dev" branch is checked out type `git checkout dev`
 
-- git merge upstream/dev
+0. Type `git merge upstream/dev` to bring your local branch in to sync with the [upstream](https://github.com/selfhostedshow/wiki) repository.
