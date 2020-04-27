@@ -37,7 +37,7 @@ mosquitto_sub -h 192.168.1.201 -u 'username' -P 'password' -t "#"
 
 ## UNRAID-API Container Configuration
 
-Install the [UnRAID-API](https://github.com/ElectricBrainUK/UnraidAPI) on your UnRAID server, this can alo be installed from the UnRAID App Store.
+Install the [UnRAID-API](https://github.com/ElectricBrainUK/UnraidAPI) on your UnRAID server, this can also be installed from the UnRAID App Store.
 
 ![unraid-api-container]('/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/unraid-api.png')
 
