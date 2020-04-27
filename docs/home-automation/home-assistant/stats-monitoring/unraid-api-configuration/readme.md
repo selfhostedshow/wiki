@@ -29,7 +29,7 @@ These need to be configured and working before you proceed to configure the UnRA
 
 **_When setting up the MQTT integration, ensure that you tick the box to enable discovery._**
 
-Test you can connect to the MQTT instance
+To test your MQTT server is functioning correctly you can connect to the MQTT instance, replacing `'username'` and `'password'` with your MQTT credentials. 
 
 ```
 mosquitto_sub -h 192.168.1.201 -u 'username' -P 'password' -t "#"
@@ -39,7 +39,7 @@ mosquitto_sub -h 192.168.1.201 -u 'username' -P 'password' -t "#"
 
 Install the [UnRAID-API](https://github.com/ElectricBrainUK/UnraidAPI) on your UnRAID server, this can alo be installed from the UnRAID App Store.
 
-![unraid-api-container](https://github.com/selfhostedshow/wiki/tree/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/unraid-api.png)
+![unraid-api-container]('/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/unraid-api.png')
 
 When you get to the configuration screen for the container following keys need to be added to the default container configuration
 
@@ -50,26 +50,26 @@ When you get to the configuration screen for the container following keys need t
 
 As an example this is the value for key 7, you will need to replicate it for key 8 found in the table above. 
 
-![Container Key](https://github.com/selfhostedshow/wiki/tree/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/key-7.png)
+![Container Key]'/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/key-7.png')
 
 You will also need to configure your MQTT Broker, replacing the fields marked in Yellow.
 
-![Container MQTT](https://github.com/selfhostedshow/wiki/tree/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/container-configuration.png)
+![Container MQTT]('/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/container-configuration.png')
 
 ### Starting The Container
 When you start the container for the first time you must browse to the login screen of the UnRAID-API Web-UI and login with your UnRAID credentials. If this step is missed the API will not work. 
 
-![Web-UI](https://github.com/selfhostedshow/wiki/tree/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/web-ui.png)
+![Web-UI]('/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/web-ui.png')
 
 ### Check Home Assistant
 Once the UnRAID-API container is up and running check the mqtt integration, you should now have some UnRAID entities. If not please reboot your Home Assistant instance, once your Home Assistant instance has rebooted wait at least 3 minutes for entities to appear in the integration. 
 
-![mqtt-integration](https://github.com/selfhostedshow/wiki/tree/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/mqtt.png)
+![mqtt-integration]('/dev/docs/home-automation/home-assistant/stats-monitoring/unraid-api-configuration/images/mqtt.png')
 
 ### Setting Up Sensors
 The following sensors can be configured in Home Assistant to view the following information. Ensure that you change `unraid_server_name` for the `binary_sensor` of your entity in `Home Assistant`
 
- - arrayStatus
+#### arrayStatus
 
 ```YAML
 sensor:
@@ -81,7 +81,7 @@ sensor:
           {{state_attr("binary_sensor.unraid_server_name", "arrayStatus")}}
 ```
 
- - arrayProtection
+#### arrayProtection
 
 
 ```YAML
@@ -93,7 +93,7 @@ sensor:
         value_template: >
           {{state_attr("binary_sensor.unraid_server_name", "arrayProtection")}}
 ```
- - diskSpace
+#### diskSpace
  
 ```YAML
 sensor:
