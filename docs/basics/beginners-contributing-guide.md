@@ -1,6 +1,6 @@
 # Beginners Contributing Guide
 
-See the [Contribution Guidelines](/wiki/contributing/) for information and objectives of the wiki.
+See the [Contribution Guidelines]((https://selfhostedshow.github.io/wiki/contributing/) for information and objectives of the wiki.
 
 ## Prerequisites:
 * Docker is already running in your environment
@@ -27,7 +27,7 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 
 0. Navigate to the [upstream](https://github.com/selfhostedshow/wiki).
 
-0. Click ![Fork](images/fork.PNG) in the top right to copy the "wiki" repository to your Github account.
+0. Click ![Fork](images/fork.png) in the top right to copy the "wiki" repository to your Github account.
 
 0. Log in to your computer or server you are going to use for Git and `cd` to the directory you want to download the wiki repository to.
 
@@ -89,13 +89,13 @@ This section will create a new pull request from your Github repo to the [Upstre
 
 0. Navigate to the Github [wiki](https://github.com/selfhostedshow/wiki) web interface.
 
-0. Click ![newpulrequest](images/newpullrequrest.PNG) in the top(ish) left, verify the the branch is set to "dev". 
+0. Click ![newpulrequest](images/newpullrequrest.png) in the top(ish) left, verify the the branch is set to "dev". 
 
 0. Under Compare changes click "compare across forks" link, verify the **base** repository is the [upstream](https://github.com/selfhostedshow/wiki) site and the head repository is your repo.
 
 0. The changes that were made should come automatically, make the comment succinct and meaningful.
 
-0. Submit a pull request by clicking ![createpullrequest](images/createpullrequest.PNG).
+0. Submit a pull request by clicking ![createpullrequest](images/createpullrequest.png).
 
 0. The commit has now been added to the pull request the Wiki-Admins will review and if approved will get pushed to the master branch for publishing.
 

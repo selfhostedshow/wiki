@@ -1,6 +1,6 @@
 # Contributing to the Self Hosted Show Wiki
 
-See the [Beginners Contributing Guide](/basics/beginners-contributing-guide/) for step by step instructions on how to add content.
+See the [Beginners Contributing Guide](https://selfhostedshow.github.io/wiki/basics/beginners-contributing-guide/) for step by step instructions on how to add content.
 
 ## Objectives of This Wiki
 
