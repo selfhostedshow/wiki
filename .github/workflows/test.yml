@@ -13,7 +13,7 @@ jobs:
       run: docker-compose build
 
     - name: Build site
-      run: docker-compose run wiki build -v
+      run: docker-compose run wiki build --verbose --strict
 
     - name: Build production container
       run: docker build -f prod/Dockerfile .
