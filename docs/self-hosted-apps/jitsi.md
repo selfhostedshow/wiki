@@ -14,11 +14,11 @@ The quickstart guide linked above will essentially give a proof-of-concept Jitsi
 !!!attention "Make sure to read the official docs"
     Always read the source docs, do not rely directly on this page. This is an overview, and should be treated as such.
 
-### Requirements as of 2020-09-05
+### Requirements as of 2020-09
 - [Docker engine](https://docs.docker.com/engine/install/) (aka "docker")
 - [Docker-compose](https://docs.docker.com/compose/install/)
-- Git
-- Openssl
+- [Git](https://git-scm.com/downloads)
+- [Openssl](https://github.com/openssl/openssl#download)
 
 ## Public Jitsi server
 Once the quickstart guide is completed, the existing setup can be used to set up a public Jitsi server. Follow the [Let's Encrypt](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker#lets-encrypt-configuration) guide to allow for the mobile app.
@@ -29,14 +29,10 @@ It is recommended to set all configurations _before_ enabling Let's Encrypt. Thi
 - Shut down the quickstart docker images: `docker-compose down` (may need to use sudo)
 - Edit `.env` file to match public domain, IP, etc.
 - Remove then recreate the config directory: `rm -r ~/.jitsi-meet-cfg && mkdir -p ~/.jitsi-meet-cfg/{web/letsencrypt,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}`
-- Test connection via a browser to ensure DNS, routing, and any specific `.env` settings are working as predicted. You will likely still run into an HTTPS error, however.
+- Test connection via a browser to ensure DNS, routing, and any specific `.env` settings are working as predicted. You will likely still run into an HTTPS error, however the website and meeting tools should work on a desktop browser.
 
-### Prepare meet.example.com for a TLS certificate
-In order for the mobile app to work with the self-hosted Jitsi server and for the https error to be removed the web server will need to be issued a TLS certificate.
+Congrats on creating your Jitsi meet server!
 
-- Edit the `.env` file and follow the instructions above to recreate the config directory, then bring the containers back up.
-- Use `docker exec` to connect to the web container, eg: `docker exec -it docker-jitsi-meet_web_1 bash`.
-- Recommended: Install `certbot` using the Debian-based [instructions](https://certbot.eff.org/lets-encrypt/debianstretch-nginx) (snapd seems like a nice alterative, but will be a more difficult way to get set up within the container).
-
-### Extra tips
-- The web server uses nginx
+<!---
+TODO: Add section or dedicated page for Let's Encrypt on a container for Jitsi.
+-->
