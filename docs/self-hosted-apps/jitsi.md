@@ -1,5 +1,5 @@
 ## What is Jitsi
-As [Jitsi](https://jitsi.github.io/handbook/docs/intro)'s website states:
+View Jitsi's full docs [here](https://jitsi.github.io/handbook/docs/intro)
 
 Jitsi is a video conferencing suite - video server, client, video stream negotiator, media session manager, SIP gateway, and stream/recording manager. This gives the ability to run your own Zoom-like/Google Meet-like/Teams-like meeting with hardware at home.
 
