@@ -20,9 +20,6 @@ The quickstart guide linked above will essentially give a proof-of-concept Jitsi
 - [Git](https://git-scm.com/downloads)
 - [Openssl](https://github.com/openssl/openssl#download)
 
-## Public Jitsi server
-Once the quickstart guide is completed, the existing setup can be used to set up a public Jitsi server. Follow the [Let's Encrypt](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker#lets-encrypt-configuration) guide to allow for the mobile app.
-
 ### Reconfigure quickstart config for public server
 It is recommended to set all configurations _before_ enabling Let's Encrypt. This will allow a public test of the server, and ensure port forwarding or reverse proxy is set up correctly. Ensure you have a public DNS record for your domain:
 
