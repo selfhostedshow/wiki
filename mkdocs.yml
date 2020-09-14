@@ -15,7 +15,7 @@ extra:
     - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/selfhostedshow'
     - icon: 'fontawesome/solid/fire'
-      link: 'https://fireside.com'
+      link: 'https://selfhosted.show/'
     - icon: 'fontawesome/solid/microphone'
       link: 'https://pocketcasts.com'
     - icon: 'fontawesome/solid/graduation-cap'
@@ -31,11 +31,11 @@ markdown_extensions:
       guess_lang: false
   - toc:
       permalink: true
+  - footnotes
   - mdx_include:
       base_path: docs
+
 plugins:
   - search
   - minify:
       minify_html: true
-
-strict: true

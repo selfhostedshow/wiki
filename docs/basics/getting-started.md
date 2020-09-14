@@ -10,6 +10,7 @@ Things here might include:
 
 ### Where to start<br>
   * [Linuxserver.io - Let's Encrypt, Nginx & Reverse Proxy Starter Guide - 2019 Edition](https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/#nextcloudsubdomainreverseproxyexample) - How to get started with docker, docker-compose, nginx as reverse proxy + SSL and cloud services (Nextcloud, Plex, Ombi, Heimdall)
+  * [25 Basic Docker Commands for Beginners](http://codeopolis.com/posts/25-basic-docker-commands-for-beginners/) - A docker command cheat sheet to help get you started with docker.
   * [SmartHomeBeginner](https://www.smarthomebeginner.com/) - How to setup your own complete home server using docker-compose.
 ### Hardware
 ### Software
