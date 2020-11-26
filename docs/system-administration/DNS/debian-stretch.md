@@ -607,6 +607,9 @@ nslookup @localhost www.google.com
 
 ### Share zone data with the secondary.
 
+!!! warning
+    These next steps should be done on the primary name server.
+    
 On your primary server let's edit the **named.conf.options** file and add the following:
 
 ```
