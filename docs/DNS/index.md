@@ -1,28 +1,27 @@
 ---
-title: Self Hosting a Caching / Authoritative Internal DNS Sever.
-summary: Something
+title: Self Hosting a Caching / Authoritative Internal DNS Server
+summary: A simple introduction on DNS
 date: 2020-11-26
 authors:
   - Adam Spann
 ---
-# Self Hosting a Caching / Authoritative Internal DNS Sever.
+# Self Hosting a Caching / Authoritative Internal DNS Sever
 
-## Warning!
-  This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
-
-## What is DNS?
+## What is DNS
 
 DNS (Domain Name Services) is a distributed approach to mapping hosts/domains to IP address.
 The traditional analogy is the classic, long forgotten, phone book. You know your friend's name (host/domain), but it's hard to remember phone numbers (IP Address). DNS solves that issue. It also distributes the information and management.
 
-## Why you might want or need DNS?
+## Why you might want or need DNS
 
 Sometimes our internal/home networks become large and complex. Editing local host files on each and every machine can start to take more time, and we might forget to update a single machine. A good solution would be to centralise this information. Enter DNS.
 
-## The guides:
-### Debian Based Systems.
-### [Debian 9.13 (Stretch)](debian-stretch.md)
+## The guides
+- BIND
+    - [Debian (Stretch / Buster)](debian-bind.md)
+- [Unbound](unbound-dns.md)
 
-# References:
+# References
 - [Split Horizon Master/Slave](https://jensd.be/160/linux/split-horizon-dns-masterslave-with-bind)
 - [Digital Ocean DNS Configuration](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-debian-9)
+- [Debian - Securing Bind](https://www.debian.org/doc/manuals/securing-debian-manual/sec-bind.en.html)

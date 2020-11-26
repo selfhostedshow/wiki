@@ -1,10 +1,14 @@
 ---
-title: Debian 9.13 (Stretch) DNS Configuration.
-summary:
+title: Debian (Stretch / Buster) DNS Configuration
+summary: A guide on how to setup Primary and Secondary caching servers with zone authority under Debian (stretch and Buster)
 date: 2020-11-26
 authors:
   - Adam Spann
 ---
+
+## A note of warning
+  This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
+
 ## Installation
 ```
   apt update && apt upgrade
@@ -12,9 +16,9 @@ authors:
 ```
 This will update the server so that we have the latest patched modules and libraries and then install Bind9.
 
-## Configuration.
+## Configuration
 
-### Some Assumptions.
+### Some Assumptions
 Whilst assumptions are the mother of all hiccups. I will make a few.
 
 - You have not set up Bind previously.
@@ -24,12 +28,12 @@ Whilst assumptions are the mother of all hiccups. I will make a few.
   - 192.168.11.20 (Secondary)
 - Please change these in your setting to match your own network.
 
-### Usful Tools and Commands:
-- dig
-- nslookup (alternative to dig)
-- named-checkconf
-- named-checkzone
-- systemd-resolve --status
+### Usful Tools and Commands
+- `dig`
+- `nslookup` (alternative to dig)
+- `named-checkconf`
+- `named-checkzone`
+- `systemd-resolve --status`
 
 ### Important files
 ```
@@ -45,25 +49,28 @@ RESOLVCONF=no
 OPTIONS="-u bind"
 
 ```
+!!! note "Disable IP6"
+    You can disable IP6 by adding "**-4**" between the quotation marks for **OPTIONS**
 
 This file is where we can set additional options which are passed to bind on startup. We can specify if our network is IP4 only and if we want to run the service chrooted. I will not go into that here. I am assuming that the DNS server will only be used internally behind a NAT router and not exposed to the internet. Thus additional security is not required.
 
 ### /etc/bind/
 
-!!! note
-    **named.conf**
+!!! note "named.conf"
     This is the main configuration file.
 
     We can break this into multiple files which can be included in **named.conf** by using the **include** directive.
 
-#### Working with configuration files.
+#### Working with configuration files
 
 Let's start by creating a file that will contain our ACLs (Access Control List) and add the following contents.
 
 ```
 cd /etc/bind/
 ```
+
 ##### named.conf.acl
+
 Create a file called **named.conf.acl**
 
 Then add the following contents.
@@ -77,7 +84,7 @@ acl "internal" {
 
 ```
 
-This will be used to allow DNS to make external lookups for the address ranges specified. This is very important if your DNS server is exposed on the internet. Not really needed if it is not exposed.
+This will be used to allow DNS to make external lookups for the address ranges specified. This is very important if your DNS server is exposed on the internet. Not really needed if it is not exposed. But let's follow some best practices.
 
 ##### named.conf
 
@@ -154,8 +161,8 @@ Lets add some options just below the **directory** option:
 **What do these options mean?**
 
 1. Enable recursion so that the server can make lookups for us.
-2. Limit the addresses that can do recursive lookups to the addresses we specified using the **internal** ACL.
-3. Listen for and answer DNS queries that come in. Limited to the internal loopback address and the main interface address. If you do not want to restrict the listen-on interfaces, use a value of **any;**
+2. Limit the addresses that can do recursive lookups to the addresses we specified using the **internal** ACL. A pretty standard security measure.
+3. Listen for and answer DNS queries that come in. Limited to the internal loopback address and the main interface address. If you do not want to restrict the listen-on interfaces, use a value of **any;**. The use of **any** is not recommended. And should certainly not be used if any of your interfaces are internet facing!
 4. Don't allow zone transfers to secondary DNS servers. This can and will be adjust on a zone by zone basis later if you configure a secondary name server for your network.
 
 Next look at the **forwarder** portion. This is were we can tell the DNS server who it should go and ask to make lookups on its behalf if it doesn't already know the answer. Either because it is not the authoritative server or does not have a cache record. This would generally be your ISP's name servers. But you are free to use others. Such as **8.8.8.8** and other public DNS servers. Though using a name server that is not local or part of your normal service is generally frowned upon and could also result in slow lookups.
@@ -191,7 +198,7 @@ At this point you basically have a caching server configuration. It might be a g
 
 ```
 systemctl enable bind9
-ststemctl start bind9
+systemctl start bind9
 ```
 
 At the moment the server itself doesn't know to use the newly configured bind service. But we can cheat here. And actually this is useful trick when you are testing DNS related issues.
@@ -201,7 +208,7 @@ We can use the **dig** command.
 dig www.google.com @localhost
 
 ```
-!!! note
+!!! note "Using @"
     The **@localhost** is saying we want to specifically send our DNS query to the localhost without using the **/etc/resolv.conf** file.
 
 Which should give you output similar to the text below. This will probably be a little different on your own system.
@@ -280,7 +287,12 @@ There seems to be a few ways to do this.
 
 3. Modify **/etc/dhcpcd.conf** if you are assigning host addresses and name servers using dhcp.
 
-4. Using **netplan**. Unfortunately this is new to me and I have not had a chance to look into it.
+!!! note
+    Option 2 is probably the best. Though it will not be a good choice for your name servers themselves. The name servers need to list their own interfaces first in the **resolv.conf** file
+
+    Options 1 or 3 are good for the name servers you will be configuring.
+
+#### The dhcpcd approach
 
 If you do not have a **/etc/dhcpcd.conf** you can install and configure it using:
 
@@ -289,8 +301,6 @@ apt install dhcpcd
 systemctl enable dhcpcd
 systemctl start dhcpcd
 ```
-
-#### The dhcpcd approach
 
 Open **/etc/dhcpcd.conf**
 
@@ -321,19 +331,19 @@ static domain_search=example.com
 
 Restart the **dhcpcd** service
 ```
-systemctl restart dhcpdcd
+systemctl restart dhcpcd
 ```
 
 Your **/etc/resolv.conf** should now reflect these changes but retain some of its original settings.
-You will need to make changes on all machines in your network to use the new primary, and secondary name server onces it's running. Changing the information on the DHCP server(router) is probably the best option for non name server.
+You will need to make changes on all machines in your network to use the new primary, and secondary name server once they are running.
 
 You now should have a functioning caching name server.
 
-## Time to get Authoritative!
+## Time to get Authoritative
 Having a caching name server is nice. But it's not really that useful. The real benefit comes from controlling your own domain within your network. As well as being able to provide reverse DNS entries.
 
-### What are reverse DNS entries?
-We have all probably watched a police drama where they use a reverse lookup on a phone number to get a name or address. Its basically the same.
+### What are reverse DNS entries
+We have all probably watched a police drama where they use a reverse lookup on a phone number to get a name or address. It's basically the same.
 ```
 dig -x 192.168.11.1
 ```
@@ -346,16 +356,16 @@ Response:
 ..
 ..
 ```
-!!! note
+!!! note "Slow initial network connections?"
     Have you ever noticed that sometimes initial connections to hosts can be slow? This is often caused by a failed reverse DNS lookup.
 
     The other benefit, is that reverse DNS is another way to document your network. Sure a spreadsheet is useful.
 
     But sometimes a simple **dig -x** will give you the information you need provided you keep your zone files up to date.
 
-### Setting a Reverse Zone file.
+### Setting a Reverse Zone file
 
-#### Creating the reverse zone file.
+#### Creating the reverse zone file
 
 Let's copy the **db.empty** to a new file called **db.192.168.11**
 ```
@@ -383,7 +393,7 @@ Next we are going to edit the **"localhost. root.localhost."** portion and
 replace **localhost.** with **ns1.example.com.** and **root.localhost.** with **root.example.com.**
 
 The line should now look like:
-```bash
+```
 @	IN	SOA	ns1.example.com. root.example.com. (
 
 ```
@@ -391,12 +401,14 @@ The line should now look like:
 
 We are saying that ns1.example.com is the SOA (Start Of Authority) for this zone record. And the contact email address for this zone is root@example.com. This may not be important for a purely internally hosted service, but it's good knowledge to have.
 
-!!! note
-    An important point here. **Always** update the serial number when you edit any zone files. If you forget to do this. The zone data will not propagate to the name servers correctly. The general format that has been used for the serial number is in the form of: **'YEARMONTHDATESEQUENCE'**. Assume todays date was *20201122* the Serial would be **2020112201**. If you edit the zone file on that date. If you edit it a second time on the same day, then increment the sequence. The serial would now be **2020112202**.
+!!! note "An important point."
+    **Always** update the serial number when you edit any zone files. If you forget to do this. The zone data will not propagate to the name servers correctly. The general format that has been used for the serial number is in the form of: **'YEARMONTHDATESEQUENCE'**. Assume todays date was *20201122* the Serial would be **2020112201**. If you edit the zone file on that date. If you edit it a second time on the same day, then increment the sequence. The serial would now be **2020112202**.
 
-Edit the serial to match your actual date. Try and keep everything nicely lined up. Note that the file uses tab spacing.
+Edit the serial to match your actual date. Try and keep everything nicely lined up.
+!!! Note "Zone file format"
+    The file uses tab spacing.
 
-After editing you want to have someting that looks like the following:
+After editing you want to have something that looks like the following:
 ```
 $TTL	86400
 @	IN	SOA	ns1.example.com. root.example.com. (
@@ -417,15 +429,14 @@ $TTL	86400
 40   IN     PTR     printer.example.com.
 ```
 
-**Note:**
-
-These lines end with a **.**(period / full stop). This tells DNS not to append to the record.
+!!! note "Reverse records end with a ."
+    These lines end with a **.**(period / full stop). This tells DNS not to append to the record.
 
 Add any other records that you want to have in your reverse DNS records.
 
-#### Make the server aware of our new reverse zone file.
+#### Make the server aware of our new reverse zone file
 
-Next lets make DNS aware of this this **db.192.168.11** file.
+Next lets make DNS aware of this **db.192.168.11** file.
 
 For simplicity edit the **zones.rfc1918** file and add these lines:
 ```
@@ -439,13 +450,13 @@ just above the line shown here.
 zone "168.192.in-addr.arpa" { type master; file "/etc/bind/db.empty"; };
 ```
 
-### Setting a forward zone record.
+### Setting a forward zone record
 
 Next we want to add our more standard forward lookups.
 
 #### Creating db.example.com
 
-Again copy the **db.empty** to a file called **db.example.com**. Make the same basic edits for the SOA line and ; serial. Then add your host records.
+Again copy the **db.empty** to a file called **db.example.com**. Make the same basic edits for the SOA line and serial. Then add your host records.
 
 Here is the example.
 ```
@@ -487,7 +498,7 @@ bogus.example.com.      IN  A 203.X.X.X
     If you were looking carefully you might have noticed the entry above under **External Servers/Services**
 
 
-#### Adding the zone file to the DNS Server.
+#### Adding the zone file to the DNS Server
 
 Add this db file to **named.conf.local** just below:
 ```
@@ -517,3 +528,194 @@ You now have a fully functioning primary cache and authoritative DNS server.
 The next step would be to set up your secondary DNS server to provide redundancy. You could also setup a third or fourth.
 
 Do keep in mind this is only accessible from within your home network. And does not work when you are connected to external networks. So it does not affect any of your existing externally hosted services.
+
+## Add a Secondary Name Server
+
+This will involve using the same steps to set up a caching server that we did when setting up NS1.
+So I will list these commands in quick succession.
+
+### Update and install packages
+
+```
+apt update && apt upgrade
+apt install bind9 dnsutils
+```
+
+### Create named.conf.acl
+
+Create the **named.conf.acl** file in **/etc/bind/** and add your acl data
+```
+acl "internal" {
+	192.168.11.0/24;
+	127.0.0.1;
+	::1;
+};
+```
+Get the **named.conf.acl** included into **named.conf** by adding the following to **named.conf** near the top.
+
+```
+include "/etc/bind/named.conf.acl";
+```
+
+### Update named.conf.options
+
+Edit **named.conf.options** as we did previously. But replace .10 with .20 to match the servers IP address.
+```
+options {
+	directory "/var/cache/bind";
+
+	recursion yes;
+	allow-recursion { internal; };
+	listen-on { 127.0.0.1; 192.168.11.20; };
+	allow-transfer { none; };
+
+```
+!!! note "listen-on"
+    Make sure you use the internal interface of the secondary server.
+
+### Update your forwarders
+```
+forwarders {
+  8.8.8.8;
+  xx.xx.xx.xx;
+};
+```
+And add the following if you are using forwarders.
+```
+//dnssec-validation auto;
+dnssec-validation no;
+```
+### Update named.conf.local
+
+Edit the **named.conf.local** to include **zones.rfc1918**
+
+```
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+include "/etc/bind/zones.rfc1918";
+
+```
+But don't do anything more at this stage. This should result in a working cache server.
+
+### Enable and start Bind9
+
+```
+systemctl enable bind9
+systemctl start bind9
+```
+
+Feel free to test using:
+```
+nslookup @localhost www.google.com
+```
+
+### Update **/etc/resolv.conf** using dhcpcd option
+
+#### Install dhcpcd if missing
+```
+apt install dhcpcd
+systemctl enable dhcpcd
+systemctl start dhcpcd
+```
+
+#### Edit /etc/dhcpcd.conf
+
+The new information should look similar to this.
+```
+# Example static IP configuration:
+interface eth0
+#static ip_address=192.168.0.10/24
+#static ip6_address=fd51:42f8:caae:d92e::ff/64
+#static routers=192.168.0.1
+#static domain_name_servers=192.168.0.1 8.8.8.8 fd51:42f8:caae:d92e::1
+static domain_name_servers=192.168.11.20 192.168.11.10
+static domain_search=example.com
+```
+!!! note "Change in the order of IP addresses for name servers"
+    Please notice that we have reversed the order of the domain_name_servers on
+    this server. On NS1 we have .10 then .20 on NS2 we have changed to .20 then .10
+
+#### Restart dhcpcd
+```
+systemctl restart dhcpcd
+```
+
+## Share zone data with the secondary
+
+!!! warning
+    These next steps should be done on the primary name server.
+
+On your primary server let's edit the **named.conf.options** file and add the following:
+
+```
+notify yes;
+also-notify { 192.168.11.20; };
+```
+This means that when ever we edit our zone files on the primary name server, the secondary will be notified and will pull the updated zone information without waiting for the zones TTL (Time To Live) to expire.
+
+We will now edit the previously created zone files, and add zone transfer ability.
+
+Edit **zones.rfc1918** and add the **allow-transfer** line.
+```
+zone "11.168.192.in-addr.arpa" {
+  type master;
+  file "/etc/bind/db.192.168.11";
+  allow-transfer { 192.168.11.20; };
+};
+```
+Add the same **allow-transfer** line to any other zone files you have created.
+
+Check the configuration and reload.
+```
+systemctl reload bind9
+```
+!!! note "restart vs reload vs rndc reload"
+    What is the difference between a restart and a reload?
+
+    **restart** kills the bind process and then restarts it. This clears memory and the cache.
+
+    **reload** on the other hand just has bind9 refresh the data from its files while maintaining other cached data.
+
+    **rndc** is provided by bind and is another option instead of using systemctl
+
+### Secondary server named.conf.local
+
+!!! warning "Steps done on secondary name server"
+    These steps are to be done on the secondary name serve only.
+
+We can now turn our attention to the secondary name server and configure it to get zone data from the primary which will make it authoritative for our zones.
+
+In this case we just need to update the **named.conf.local** file so that the server knows about the zones. Add the following configuration.
+
+```
+//
+// Do any local configuration here
+//
+zone "example.com" {
+    type slave;
+    file "db..example.com";
+    masters { 192.168.11.10; };
+};
+
+zone "11.168.192.in-addr.arpa" {
+    type slave;
+    file "db.192.168.11";
+    masters { 192.168.11.10; };
+};
+```
+
+This basically says that for the zone file we are a secondary (slave) and that the source of all truth is our primary server.
+
+You can reload bind9
+```
+systemctl reload bind9
+```
+or
+```
+rndc reload
+```
+
+
+That should conclude getting the name servers up and running and answering queries.
+
+You still need to configure your network equipment to use these new servers.
