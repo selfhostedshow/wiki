@@ -700,8 +700,6 @@ or
 rndc reload
 ```
 
-To finish up we need to get our **/etc/resolv.conf** updated using the method you used before. Just remember to list your secondary ip address before the primary so that it uses itself first.
-
 
 That should conclude getting the name servers up and running and answering queries.
 
