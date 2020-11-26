@@ -352,7 +352,7 @@ Response:
 ..
 ..
 ```
-!!! note
+!!! note "Slow initial network connections?"
     Have you ever noticed that sometimes initial connections to hosts can be slow? This is often caused by a failed reverse DNS lookup.
 
     The other benefit, is that reverse DNS is another way to document your network. Sure a spreadsheet is useful.
@@ -389,7 +389,7 @@ Next we are going to edit the **"localhost. root.localhost."** portion and
 replace **localhost.** with **ns1.example.com.** and **root.localhost.** with **root.example.com.**
 
 The line should now look like:
-```bash
+```
 @	IN	SOA	ns1.example.com. root.example.com. (
 
 ```
