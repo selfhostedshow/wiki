@@ -525,7 +525,7 @@ The next step would be to set up your secondary DNS server to provide redundancy
 
 Do keep in mind this is only accessible from within your home network. And does not work when you are connected to external networks. So it does not affect any of your existing externally hosted services.
 
-## Adding a Secondary Name Server.
+## Add a Secondary Name Server.
 
 This will involve using the same steps to set up a caching server that we did when setting up NS1.
 So I will list these commands in quick succession.
