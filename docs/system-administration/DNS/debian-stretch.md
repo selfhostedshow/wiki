@@ -50,8 +50,7 @@ This file is where we can set additional options which are passed to bind on sta
 
 ### /etc/bind/
 
-!!! note
-    **named.conf**
+!!! note "named.conf"
     This is the main configuration file.
 
     We can break this into multiple files which can be included in **named.conf** by using the **include** directive.
@@ -63,7 +62,9 @@ Let's start by creating a file that will contain our ACLs (Access Control List) 
 ```
 cd /etc/bind/
 ```
+
 ##### named.conf.acl
+
 Create a file called **named.conf.acl**
 
 Then add the following contents.
@@ -77,7 +78,7 @@ acl "internal" {
 
 ```
 
-This will be used to allow DNS to make external lookups for the address ranges specified. This is very important if your DNS server is exposed on the internet. Not really needed if it is not exposed.
+This will be used to allow DNS to make external lookups for the address ranges specified. This is very important if your DNS server is exposed on the internet. Not really needed if it is not exposed. But let's follow some best practices.
 
 ##### named.conf
 
@@ -154,8 +155,8 @@ Lets add some options just below the **directory** option:
 **What do these options mean?**
 
 1. Enable recursion so that the server can make lookups for us.
-2. Limit the addresses that can do recursive lookups to the addresses we specified using the **internal** ACL.
-3. Listen for and answer DNS queries that come in. Limited to the internal loopback address and the main interface address. If you do not want to restrict the listen-on interfaces, use a value of **any;**
+2. Limit the addresses that can do recursive lookups to the addresses we specified using the **internal** ACL. A pretty standard security measure.
+3. Listen for and answer DNS queries that come in. Limited to the internal loopback address and the main interface address. If you do not want to restrict the listen-on interfaces, use a value of **any;**. The use of **any** is not recommended. And should certainly not be used if any of your interfaces are internet facing!
 4. Don't allow zone transfers to secondary DNS servers. This can and will be adjust on a zone by zone basis later if you configure a secondary name server for your network.
 
 Next look at the **forwarder** portion. This is were we can tell the DNS server who it should go and ask to make lookups on its behalf if it doesn't already know the answer. Either because it is not the authoritative server or does not have a cache record. This would generally be your ISP's name servers. But you are free to use others. Such as **8.8.8.8** and other public DNS servers. Though using a name server that is not local or part of your normal service is generally frowned upon and could also result in slow lookups.
@@ -201,7 +202,7 @@ We can use the **dig** command.
 dig www.google.com @localhost
 
 ```
-!!! note
+!!! note "Using @"
     The **@localhost** is saying we want to specifically send our DNS query to the localhost without using the **/etc/resolv.conf** file.
 
 Which should give you output similar to the text below. This will probably be a little different on your own system.
@@ -282,6 +283,11 @@ There seems to be a few ways to do this.
 
 4. Using **netplan**. Unfortunately this is new to me and I have not had a chance to look into it.
 
+!!! note
+    Option 2 is probably the best. Though it will not be a good choice for your name servers themselves. The name servers need to list their own interfaces first in the **resolv.conf** file
+
+    Options 1, 3 and 4 are good for the name servers you will be configuring.
+
 If you do not have a **/etc/dhcpcd.conf** you can install and configure it using:
 
 ```
@@ -325,7 +331,7 @@ systemctl restart dhcpdcd
 ```
 
 Your **/etc/resolv.conf** should now reflect these changes but retain some of its original settings.
-You will need to make changes on all machines in your network to use the new primary, and secondary name server onces it's running. Changing the information on the DHCP server(router) is probably the best option for non name server.
+You will need to make changes on all machines in your network to use the new primary, and secondary name server once they are running.
 
 You now should have a functioning caching name server.
 
