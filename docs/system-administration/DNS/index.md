@@ -20,7 +20,6 @@ The traditional analogy is the classic, long forgotten, phone book. You know you
 Sometimes our internal/home networks become large and complex. Editing local host files on each and every machine can start to take more time, and we might forget to update a single machine. A good solution would be to centralise this information. Enter DNS.
 
 ## The guides:
-### Debian Based Systems.
 ### [Debian 9.13 (Stretch)](debian-stretch.md)
 
 # References:
