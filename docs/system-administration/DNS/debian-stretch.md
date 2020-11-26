@@ -432,7 +432,7 @@ Add any other records that you want to have in your reverse DNS records.
 
 #### Make the server aware of our new reverse zone file.
 
-Next lets make DNS aware of this this **db.192.168.11** file.
+Next lets make DNS aware of this **db.192.168.11** file.
 
 For simplicity edit the **zones.rfc1918** file and add these lines:
 ```
@@ -452,7 +452,7 @@ Next we want to add our more standard forward lookups.
 
 #### Creating db.example.com
 
-Again copy the **db.empty** to a file called **db.example.com**. Make the same basic edits for the SOA line and ; serial. Then add your host records.
+Again copy the **db.empty** to a file called **db.example.com**. Make the same basic edits for the SOA line and serial. Then add your host records.
 
 Here is the example.
 ```
