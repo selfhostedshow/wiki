@@ -425,9 +425,8 @@ $TTL	86400
 40   IN     PTR     printer.example.com.
 ```
 
-**Note:**
-
-These lines end with a **.**(period / full stop). This tells DNS not to append to the record.
+!!! note "Reverse records end with a ."
+    These lines end with a **.**(period / full stop). This tells DNS not to append to the record.
 
 Add any other records that you want to have in your reverse DNS records.
 
