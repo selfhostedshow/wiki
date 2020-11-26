@@ -517,3 +517,152 @@ You now have a fully functioning primary cache and authoritative DNS server.
 The next step would be to set up your secondary DNS server to provide redundancy. You could also setup a third or fourth.
 
 Do keep in mind this is only accessible from within your home network. And does not work when you are connected to external networks. So it does not affect any of your existing externally hosted services.
+
+## Adding a Secondary Name Server.
+
+This will involve using the same steps to set up a caching server that we did when setting up NS1.
+So I will list these commands in quick succession.
+
+### Update and install packages.
+
+```
+apt update && apt upgrade
+apt install bind9 dnsutils
+```
+
+### Create named.conf.acl
+
+Create the **named.conf.acl** file in **/etc/bind/** and add your acl data
+```
+acl "internal" {
+	192.168.11.0/24;
+	127.0.0.1;
+	::1;
+};
+```
+Get the **named.conf.acl** included into **named.conf** by adding the following to **named.conf** near the top.
+
+```
+include "/etc/bind/named.conf.acl";
+```
+
+### Update named.conf.options.
+
+Edit **named.conf.options** as we did previously. But replace .10 with .20 to match the servers IP address.
+```
+options {
+	directory "/var/cache/bind";
+
+	recursion yes;
+	allow-recursion { internal; };
+	listen-on { 127.0.0.1; 192.168.11.20; };
+	allow-transfer { none; };
+
+```
+!!! note "listen-on"
+    Make sure you use the internal interface of the secondary server.
+
+#### Updated your forwarders
+```
+forwarders {
+  8.8.8.8;
+  xx.xx.xx.xx;
+};
+```
+And add the following if you are using forwarders.
+```
+//dnssec-validation auto;
+dnssec-validation no;
+```
+### Updated named.conf.local
+
+Edit the *named.conf.local** to include **zones.rfc1918**
+
+```
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+include "/etc/bind/zones.rfc1918";
+
+```
+But don't do anything more at this stage. This should result in a working cache server.
+
+### Enable and start Bind9
+
+```
+systemctl enable bind9
+systemctl start bind9
+```
+
+Feel free to test using:
+```
+nslookup @localhost www.google.com
+```
+
+### Share zone data with the secondary.
+
+On your primary server let's edit the **named.conf.options** file and add the following:
+
+```
+notify yes;
+also-notify { 192.168.11.20; };
+```
+This means that when ever we edit our zone files on the primary name server, the secondary will be notified and will pull the updated zone information without waiting for the zones TTL (Time To Live) to expire.
+
+We will now edit the previously created zone files, and add zone transfer ability.
+
+Edit **zones.rfc1918** and add the **allow-transfer** line.
+```
+zone "11.168.192.in-addr.arpa" {
+  type master;
+  file "/etc/bind/db.192.168.11";
+  allow-transfer { 192.168.11.20; };
+};
+```
+Add the same **allow-transfer** line to any other zone files you have created.
+
+Check the configuration and reload.
+Reload bind9
+```
+systemctl reload bind9
+```
+
+### Secondary server named.conf.local
+
+We can now turn our attention to the secondary name server and configure it to get zone data from the primary which will make it authoritative for our zones.
+
+In this case we just need to update the **named.conf.local** file so that the server knows about the zones. Add the following configuration.
+
+```
+//
+// Do any local configuration here
+//
+zone "example.com" {
+    type slave;
+    file "db..example.com";
+    masters { 192.168.11.10; };
+};
+
+zone "11.168.192.in-addr.arpa" {
+    type slave;
+    file "db.192.168.11";
+    masters { 192.168.11.10; };
+};
+```
+
+This basically says that for the zone file we are a secondary (slave) and that the source of all truth is our primary server.
+
+You can reload bind9
+```
+systemctl reload bind9
+```
+or
+```
+rndc reload
+```
+
+To finish up we need to get our **/etc/resolv.conf** updated using the method you used before. Just remember to list your secondary ip address before the primary so that it uses itself first.
+
+
+That should conclude getting the name servers up and running and answering queries.
+
+You still need to configure your network equipment to use these new servers.
