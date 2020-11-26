@@ -609,7 +609,7 @@ nslookup @localhost www.google.com
 
 !!! warning
     These next steps should be done on the primary name server.
-    
+
 On your primary server let's edit the **named.conf.options** file and add the following:
 
 ```
@@ -631,13 +631,15 @@ zone "11.168.192.in-addr.arpa" {
 Add the same **allow-transfer** line to any other zone files you have created.
 
 Check the configuration and reload.
-Reload bind9
 ```
 systemctl reload bind9
 ```
 
 ### Secondary server named.conf.local
 
+!!! warning "Steps done on secondary name server"
+    These steps are to be done on the secondary name serve only.
+    
 We can now turn our attention to the secondary name server and configure it to get zone data from the primary which will make it authoritative for our zones.
 
 In this case we just need to update the **named.conf.local** file so that the server knows about the zones. Add the following configuration.
