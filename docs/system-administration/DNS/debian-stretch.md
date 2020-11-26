@@ -192,7 +192,7 @@ At this point you basically have a caching server configuration. It might be a g
 
 ```
 systemctl enable bind9
-ststemctl start bind9
+systemctl start bind9
 ```
 
 At the moment the server itself doesn't know to use the newly configured bind service. But we can cheat here. And actually this is useful trick when you are testing DNS related issues.
