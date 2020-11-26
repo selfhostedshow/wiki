@@ -569,7 +569,7 @@ options {
 !!! note "listen-on"
     Make sure you use the internal interface of the secondary server.
 
-#### Updated your forwarders
+### Update your forwarders
 ```
 forwarders {
   8.8.8.8;
@@ -581,9 +581,9 @@ And add the following if you are using forwarders.
 //dnssec-validation auto;
 dnssec-validation no;
 ```
-### Updated named.conf.local
+### Update named.conf.local
 
-Edit the *named.conf.local** to include **zones.rfc1918**
+Edit the **named.conf.local** to include **zones.rfc1918**
 
 ```
 // Consider adding the 1918 zones here, if they are not used in your
@@ -605,7 +605,35 @@ Feel free to test using:
 nslookup @localhost www.google.com
 ```
 
-### Share zone data with the secondary.
+### Update **/etc/resolv.conf** using dhcpcd option
+
+#### Install dhcpcd if missing
+```
+apt install dhcpcd
+systemctl enable dhcpcd
+systemctl start dhcpcd
+```
+
+#### Edit /etc/dhcpcd.conf
+
+The new information should look similar to this.
+```
+# Example static IP configuration:
+interface eth0
+#static ip_address=192.168.0.10/24
+#static ip6_address=fd51:42f8:caae:d92e::ff/64
+#static routers=192.168.0.1
+#static domain_name_servers=192.168.0.1 8.8.8.8 fd51:42f8:caae:d92e::1
+static domain_name_servers=192.168.11.20 192.168.11.10
+static domain_search=example.com
+```
+
+#### Restart dhcpdcd
+```
+systemctl restart dhcpdcd
+```
+
+## Share zone data with the secondary.
 
 !!! warning
     These next steps should be done on the primary name server.
@@ -639,7 +667,7 @@ systemctl reload bind9
 
 !!! warning "Steps done on secondary name server"
     These steps are to be done on the secondary name serve only.
-    
+
 We can now turn our attention to the secondary name server and configure it to get zone data from the primary which will make it authoritative for our zones.
 
 In this case we just need to update the **named.conf.local** file so that the server knows about the zones. Add the following configuration.
