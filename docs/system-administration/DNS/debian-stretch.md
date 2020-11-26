@@ -397,8 +397,8 @@ The line should now look like:
 
 We are saying that ns1.example.com is the SOA (Start Of Authority) for this zone record. And the contact email address for this zone is root@example.com. This may not be important for a purely internally hosted service, but it's good knowledge to have.
 
-!!! note
-    An important point here. **Always** update the serial number when you edit any zone files. If you forget to do this. The zone data will not propagate to the name servers correctly. The general format that has been used for the serial number is in the form of: **'YEARMONTHDATESEQUENCE'**. Assume todays date was *20201122* the Serial would be **2020112201**. If you edit the zone file on that date. If you edit it a second time on the same day, then increment the sequence. The serial would now be **2020112202**.
+!!! note "An important point."
+    **Always** update the serial number when you edit any zone files. If you forget to do this. The zone data will not propagate to the name servers correctly. The general format that has been used for the serial number is in the form of: **'YEARMONTHDATESEQUENCE'**. Assume todays date was *20201122* the Serial would be **2020112201**. If you edit the zone file on that date. If you edit it a second time on the same day, then increment the sequence. The serial would now be **2020112202**.
 
 Edit the serial to match your actual date. Try and keep everything nicely lined up. Note that the file uses tab spacing.
 
