@@ -8,7 +8,7 @@ authors:
 
 ## A note of warning!
   This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
-  
+
 ## Installation
 ```
   apt update && apt upgrade
@@ -292,6 +292,8 @@ There seems to be a few ways to do this.
 
     Options 1, 3 and 4 are good for the name servers you will be configuring.
 
+#### The dhcpcd approach
+
 If you do not have a **/etc/dhcpcd.conf** you can install and configure it using:
 
 ```
@@ -299,8 +301,6 @@ apt install dhcpcd
 systemctl enable dhcpcd
 systemctl start dhcpcd
 ```
-
-#### The dhcpcd approach
 
 Open **/etc/dhcpcd.conf**
 
@@ -331,7 +331,7 @@ static domain_search=example.com
 
 Restart the **dhcpcd** service
 ```
-systemctl restart dhcpdcd
+systemctl restart dhcpcd
 ```
 
 Your **/etc/resolv.conf** should now reflect these changes but retain some of its original settings.
@@ -631,10 +631,13 @@ interface eth0
 static domain_name_servers=192.168.11.20 192.168.11.10
 static domain_search=example.com
 ```
+!!! note "Change in the order of IP addresses for name servers"
+    Please notice that we have reversed the order of the domain_name_servers on
+    this server. On NS1 we have .10 then .20 on NS2 we have changed to .20 then .10
 
-#### Restart dhcpdcd
+#### Restart dhcpcd
 ```
-systemctl restart dhcpdcd
+systemctl restart dhcpcd
 ```
 
 ## Share zone data with the secondary.
@@ -666,6 +669,14 @@ Check the configuration and reload.
 ```
 systemctl reload bind9
 ```
+!!! note "restart vs reload vs rndc reload"
+    What is the difference between a restart and a reload?
+
+    **restart** kills the bind process and then restarts it. This clears memory and the cache.
+
+    **reload** on the other hand just has bind9 refresh the data from its files while maintaining other cached data.
+
+    **rndc** is provided by bind and is another option instead of using systemctl
 
 ### Secondary server named.conf.local
 
