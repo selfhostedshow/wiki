@@ -1,6 +1,6 @@
 ---
 title: Debian 9.13 (Stretch) DNS Configuration.
-summary: A guide on how to setup Primary and Secondary caching servers with zone authority.
+summary: A guide on how to setup Primary and Secondary caching servers with zone authority under Debian (stretch).
 date: 2020-11-26
 authors:
   - Adam Spann

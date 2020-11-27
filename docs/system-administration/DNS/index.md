@@ -1,6 +1,6 @@
 ---
 title: Self Hosting a Caching / Authoritative Internal DNS Sever.
-summary: Something
+summary: A simple introduction on DNS.
 date: 2020-11-26
 authors:
   - Adam Spann
