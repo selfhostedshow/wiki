@@ -5,6 +5,10 @@ date: 2020-11-26
 authors:
   - Adam Spann
 ---
+
+## A note of warning!
+  This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
+  
 ## Installation
 ```
   apt update && apt upgrade

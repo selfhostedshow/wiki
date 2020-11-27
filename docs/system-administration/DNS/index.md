@@ -7,9 +7,6 @@ authors:
 ---
 # Self Hosting a Caching / Authoritative Internal DNS Sever.
 
-## A note of warning!
-  This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
-
 ## What is DNS?
 
 DNS (Domain Name Services) is a distributed approach to mapping hosts/domains to IP address.
