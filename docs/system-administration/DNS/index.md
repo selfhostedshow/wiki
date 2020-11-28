@@ -22,3 +22,4 @@ Sometimes our internal/home networks become large and complex. Editing local hos
 # References:
 - [Split Horizon Master/Slave](https://jensd.be/160/linux/split-horizon-dns-masterslave-with-bind)
 - [Digital Ocean DNS Configuration](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-debian-9)
+- [Debian - Securing Bind](https://www.debian.org/doc/manuals/securing-debian-manual/sec-bind.en.html)
