@@ -49,6 +49,8 @@ RESOLVCONF=no
 OPTIONS="-u bind"
 
 ```
+!!! note "Disable IP6"
+    You can disable IP6 by adding "**-4**" between the quotation marks for **OPTIONS**
 
 This file is where we can set additional options which are passed to bind on startup. We can specify if our network is IP4 only and if we want to run the service chrooted. I will not go into that here. I am assuming that the DNS server will only be used internally behind a NAT router and not exposed to the internet. Thus additional security is not required.
 
