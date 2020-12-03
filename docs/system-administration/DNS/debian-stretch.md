@@ -287,12 +287,10 @@ There seems to be a few ways to do this.
 
 3. Modify **/etc/dhcpcd.conf** if you are assigning host addresses and name servers using dhcp.
 
-4. Using **netplan**. Unfortunately this is new to me and I have not had a chance to look into it.
-
 !!! note
     Option 2 is probably the best. Though it will not be a good choice for your name servers themselves. The name servers need to list their own interfaces first in the **resolv.conf** file
 
-    Options 1, 3 and 4 are good for the name servers you will be configuring.
+    Options 1 or 3 are good for the name servers you will be configuring.
 
 #### The dhcpcd approach
 
