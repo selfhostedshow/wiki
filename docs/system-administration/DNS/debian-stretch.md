@@ -29,11 +29,11 @@ Whilst assumptions are the mother of all hiccups. I will make a few.
 - Please change these in your setting to match your own network.
 
 ### Usful Tools and Commands:
-- dig
-- nslookup (alternative to dig)
-- named-checkconf
-- named-checkzone
-- systemd-resolve --status
+- `dig`
+- `nslookup` (alternative to dig)
+- `named-checkconf`
+- `named-checkzone`
+- `systemd-resolve --status`
 
 ### Important files
 ```
