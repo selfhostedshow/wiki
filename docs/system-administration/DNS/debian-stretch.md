@@ -1,6 +1,6 @@
 ---
 title: Debian (Stretch / Buster) DNS Configuration.
-summary: A guide on how to setup Primary and Secondary caching servers with zone authority under Debian (stretch).
+summary: A guide on how to setup Primary and Secondary caching servers with zone authority under Debian (stretch and Buster).
 date: 2020-11-26
 authors:
   - Adam Spann
