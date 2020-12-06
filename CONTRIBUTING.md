@@ -86,12 +86,13 @@ Please at least try to understand the objectives of this wiki and the organizati
 This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is interested in self-hosting. We encourage anyone interested in contributing to follow these simple steps:
 
 - Fork this repository in Github's web interface by pressing the fork icon.
-- Clone your fork and `cd` into the new directory: `git clone https://github.com/username/wiki && cd wiki`
+- Clone your fork to your local machine and `cd` into the new directory: `git clone https://github.com/username/wiki && cd wiki`
+- Checkout a new branch with a descriptive name for your work. `git checkout -b ha-presence-detection-with-monitor`. This is informative as it tells reviewers a little about what the branch will be committing.
 - Make changes as desired to the files in the repository on your machine.
 - Add the changed files to your commit and commit the changes to your fork: `git add file1.md file2.md && git commit -m 'updated x,y,z'`
-- Push your commit to your fork: `git push origin dev`
 - [Build the wiki locally](https://github.com/selfhostedshow/wiki/blob/master/CONTRIBUTING.md#build-locally) and check that your added content renders properly in your local build.
-- On Github's web interface go to your fork and set the branch to "dev". Then submit a pull request by selecting "New Pull Request".
+- Push your commit to your fork: `git push origin ha-presence-detection-with-monitor`
+- On Github's web interface go to your fork and set the branch to "ha-presence-detection-with-monitor". Then submit a pull request by selecting "New Pull Request". (You will need to select across forms. See this link [here](https://docs.github.com/en/enterprise/2.16/user/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
 
 Not sure what to write about, take a look at our [issues](https://github.com/selfhostedshow/wiki/issues).
 
