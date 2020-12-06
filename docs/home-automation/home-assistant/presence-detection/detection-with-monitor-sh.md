@@ -1,17 +1,14 @@
 ---
-title: "Presence Detection with BLE using monitor.sh & Home Assistant"
-date: 2020-11-010T19:30:00+09:00
-lastmod: 2020-11-12T10:35:00+09:00
-author: "Adam Spann"
-description: ""
-categories: [Home Automation, Presence, Guide]
-tags: [Bluetooth, Hassio, Presence]
-disable_share: true
+title: "Presence Detection with BLE using monitor.sh"
+date: 2020-12-06
+authors:
+  - Adam Spann
+summary: A guide to using monitor.sh with Home Assistant for presence detection.
 ---
 
 I have been running [Home Assistant](https://www.home-assistant.io/hassio/) for a while. Things are going well. But I have had some issues with presence detection using the standard *device_tracker* component. Though I live in a small place, being in Tokyo, Home Assistant sometimes stops detecting phones if they are in an area of the apartment a little away from the Home Assistant server. This I suspect is due to the position of the Raspberry Pi and the building material.
 
-Doing some research I came across a possible solution using multiple BLE devices. I have opted to use [Monitor](https://github.com/andrewjfreyer/monitor) a bash script solution.
+Doing some research I came across a possible solution using multiple BLE devices. I have opted to use [Monitor](https://github.com/andrewjfreyer/monitor), a bash script solution.
 
 This is a guide mostly for myself. I need to remember how it was setup. My approach has been to try and avoid rewriting my configuration and use most of my existing *tracker_device* automations.
 
@@ -23,6 +20,7 @@ If MQTT is already setup. Skip this step.
 ### Hardware:
 
 In addition to my Home Assistant server. I have:
+
 - Raspberry Pi Zero WH
 - Raspberry Pi 2 + Bluetooth dongle
 
@@ -70,7 +68,7 @@ arp -a
 ```
 This will give you a list of devices currently connected to your network. So run this once before you power up the new Pi.
 
-After you power up the Pi. Run the *arp* command again and see which new address appears in your list.
+After you power up the Pi. Run the `arp` command again and see which new address appears in your list.
 
 ssh into the new Pi using the standard username and password. Don't forget to change the password just as a matter of good security practice.
 
@@ -103,7 +101,7 @@ wget http://repo.mosquitto.org/debian/mosquitto-buster.list
 ```
 then
 ```bash
-apt-get updated
+apt-get update
 ```
 
 If you have any issues. Take a look at **The Level 1 Way** guide listed below. You may need to install some additional packages.
@@ -132,9 +130,9 @@ Next add any BT MAC addresses that you know to the **known_static_addresses** fi
 
 One thing to note. The *alias* will be the name of the device in MQTT. If there is no alias, the MAC address will be used. More on this later.
 
-**Updated 2020/Nov/12**
+!!! warning
 
-If you are monitoring a *Tile Device* do not place it in the **known_static_addresses**. This will make monitor see the device twice. Once with confidence 100% and again with 0%. The work a round that I have seen it to not place its MAC address in the file. You will need to use the MAC address instead of an alias in the sensor configuration.
+    If you are monitoring a *Tile Device* do not place it in the **known_static_addresses**. This will make monitor see the device twice. Once with confidence 100% and again with 0%. The work a round that I have seen it to not place its MAC address in the file. You will need to use the MAC address instead of an alias in the sensor configuration.
 
 **References**
 
@@ -187,10 +185,10 @@ mqtt_certificate_path=''
 mqtt_version=''
 ```
 
-#### Note:
-**mqtt_topicpath** should be the same on each of your monitoring servers.
+!!! note
+    **mqtt_topicpath** should be the same on each of your monitoring servers.
 
-**mqtt_publisher_identity** must be unique for each server that will be sending MQTT messages to the HA server.
+    **mqtt_publisher_identity** must be unique for each server that will be sending MQTT messages to the HA server.
 
 Test that MQTT server is getting the new notifications from your Pi devices.
 
@@ -224,8 +222,7 @@ We need to collect the MQTT messages into HA
   name: 'Person1 Phone Living Area'
 
 ```
-#### Added 2020/Nov/12
-##### Tile Device Example
+#### Tile Device Example
 ```yaml
 - platform: mqtt
   state_topic: 'monitor/front/XX::XX:XX:XX:XX:XX'
@@ -240,12 +237,12 @@ We need to collect the MQTT messages into HA
   name: 'Person1 Phone Living Area'
 ```
 
-**Note:**
-1. I have two entries as I have two devices running **monitor** in two locations in my home.
-2. The topic is *person1_phone* which matches the alias used in the **known_static_addresses** file. If there was not an alias. These would be the actual MAC Addresses.
+!!! note
+    1. I have two entries as I have two devices running **monitor** in two locations in my home.
+    2. The topic is *person1_phone* which matches the alias used in the **known_static_addresses** file. If there was not an alias. These would be the actual MAC Addresses.
 
 
-The next part is still an work in progress. This is still in the sensor.yaml file.
+The next part is still a work in progress. This is still in the sensor.yaml file.
 
 ```yaml
 - platform: min_max
@@ -310,9 +307,8 @@ person1:
 
  We now have a **device_tracker.person1** which will have its state taken from **MQTT:location/person1**
 
- **Note:**
-
- If you test this state you will get a **source: null**. This will not be set until we first publish to MQTT.
+!!! note
+    If you test this state you will get a **source: null**. This will not be set until we first publish to MQTT.
 
 #### Moving on to the scripts
 
