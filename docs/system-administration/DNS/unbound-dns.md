@@ -1,10 +1,11 @@
 ---
-title: Unbound DNS. A BIND alternative for RedHat, CentOS and Fedora
+title: Unbound DNS.
 summary:
 date: 2020-12-15
 authors:
   - Adam Spann
 ---
+# Unbound DNS. A Bind Alternative for RedHat, CentOS and Fedora.
 
 You can find some initial documentation in the following locations.
 
