@@ -17,7 +17,7 @@ This is a guide mostly for myself. I need to remember how it was setup. My appro
 I configured MQTT to use a username and password. This is all that is really needed to get things started.
 If MQTT is already setup. Skip this step.
 
-### Hardware:
+### Hardware
 
 In addition to my Home Assistant server. I have:
 
@@ -25,8 +25,8 @@ In addition to my Home Assistant server. I have:
 - Raspberry Pi 2 + Bluetooth dongle
 
 &nbsp;
-### Installation:
-#### OS:
+### Installation
+#### OS
 For the most part I followed the guide at Level1Techs.
 
 #### Setup your Raspberry Pi Zero W(H)
@@ -60,7 +60,7 @@ key_mgmt=WPA-PSK
 
 Step 5 will enable ssh to your device.
 
-#### Finding your new Pi on the network.
+#### Finding your new Pi on the network
 
 If your network is small you can simply run:
 ```bash
@@ -203,9 +203,9 @@ Here we can see that devices are being seen and their *confidence level* from th
 
 At this point, after setting up all of the monitoring devices, it is time to move onto setting up HA.
 
-### Home Assistant Configuration.
+### Home Assistant Configuration
 
-#### Setup the sensor part of the configuration.
+#### Setup the sensor part of the configuration
 We need to collect the MQTT messages into HA
 
 ```yaml
@@ -292,7 +292,7 @@ We are basically saying that we are want an MQTT Topic called location/person1. 
 
 This is where I actually got stuck and it wasn't until I found [this bit of wisdom](https://community.home-assistant.io/t/combining-multiple-device-trackers-into-one-using-mqtt/45324) that things fell into place.
 
-We need to manaully add entries to the **known_devices** file.
+We need to manually add entries to the **known_devices** file.
 
 ```yaml
 person1:
@@ -411,20 +411,23 @@ Thanks to those who posted the work online. It was invaluable. The main part I f
 
 <hr/>
 
-### References:
+### References
 
 - [Bluetooth Presence Detection for Home Automation – The Level1 Way](https://forum.level1techs.com/t/bluetooth-presence-detection-for-home-automation-the-level1-way/148516)
 
 - [[monitor] Reliable, Multi-User, Distributed Bluetooth Occupancy/Presence Detection](https://community.home-assistant.io/t/monitor-reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/68505)
 
-#### These are links to a single HA user. The config is far beyond what I need. But it's a great resource.
+#### Links used from [Tinkerer](https://blog.ceard.tech)
+
+The config is far beyond what I need. But it's a great resource.
+
 - [Presence detection - are we nearly there yet?](https://blog.ceard.tech/2019/03/presence-detection-are-we-nearly-there.html)
 - [Presence detection, the final countdown?](https://blog.ceard.tech/2019/10/presence-detection-final-countdown.html)
 - [Presence detection updated](https://blog.ceard.tech/2018/09/a-while-back-i-covered-how-i-was-doing.html)
 - [GitHub Repo](https://github.com/DubhAd/Home-AssistantConfig)
 
-#### Some missing Magic.
+#### Some missing Magic
 - [The missing magic to make MQTT State usable as a device_tracker](https://community.home-assistant.io/t/combining-multiple-device-trackers-into-one-using-mqtt/45324)
 
-### Software:
+### Software
 - [Monitor](https://github.com/andrewjfreyer/monitor)
