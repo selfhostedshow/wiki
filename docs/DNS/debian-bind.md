@@ -6,8 +6,10 @@ authors:
   - Adam Spann
 ---
 
-## A note of warning
-  This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
+This guide is intended to get you up and running with a fairly minimal set up configurations. Able to provide forward and reverse caching DNS lookups using BIND9.
+
+!!! warning "A note of warning"
+    This guide is only intended for those that plan to use these servers within their own networks running behind a NAT router. Or with the service only available on the internal interfaces. This configure is not intended for WAN (Wide Area Network) interfaces.
 
 ## Installation
 ```
