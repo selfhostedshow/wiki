@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to Linode
 
 on:
   push:
@@ -6,23 +6,11 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-
-    - name: Build containers
-      run: docker-compose build
-
-    - name: Build site
-      run: docker-compose run wiki build --verbose --strict
-
-    - name: Build production container
-      run: docker build --tag docker.pkg.github.com/${GITHUB_REPOSITORY,,}/prod:latest -f prod/Dockerfile .
-
-    - name: Log into GitHub Docker Registry
-      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY%/*} --password-stdin
-
-    - name: Push the Docker container
-      run: docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/prod:latest
+      - uses: actions/checkout@v2
+      - name: Build the wiki
+        run: docker-compose up -d
+      - name: Test
+        run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
