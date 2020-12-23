@@ -12,9 +12,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the wiki
         run: docker-compose up -d
-      - name: list images
-        run: docker images
-      - name: list containers
-        run: docker ps -a
-      - name: Test
+      - name: Test container comes up and listens on port 8000
         run: docker run --network container:wiki_wiki_1 curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
+      - name: Build site
+        run: docker-compose run wiki build --verbose --strict
+      - name: Build production container
+        run: docker build --tag docker.pkg.github.com/${GITHUB_REPOSITORY,,}/prod:latest -f prod/Dockerfile .
+      - name: Log into GitHub Docker Registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY%/*} --password-stdin
+      - name: Push the Docker container
+        run: docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/prod:latest
