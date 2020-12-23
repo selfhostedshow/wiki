@@ -3,6 +3,7 @@ version: "2.4"
 services:
   wiki:
     build: .
+    image: selfhostedshow/wiki
     volumes:
       - .:/docs
     ports:

@@ -15,4 +15,4 @@ jobs:
       - name: list images
         run: docker images
       - name: Test
-        run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:8000/
+        run: docker run --network container:webapp-frontend curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
