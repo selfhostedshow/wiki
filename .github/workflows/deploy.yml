@@ -14,5 +14,7 @@ jobs:
         run: docker-compose up -d
       - name: list images
         run: docker images
+      - name: list containers
+        run: docker ps -a
       - name: Test
         run: docker run --network container:webapp-frontend curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
