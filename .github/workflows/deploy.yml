@@ -36,7 +36,7 @@ jobs:
             script: cd ${{ secrets.PROJECT_PATH }} && docker-compose build
 
       # Deploy
-      - name: Build
+      - name: Deploy new image and cleanup
         uses: appleboy/ssh-action@master
         with:
             host: ${{ secrets.WIKI_HOST }}
