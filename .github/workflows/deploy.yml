@@ -17,4 +17,4 @@ jobs:
       - name: list containers
         run: docker ps -a
       - name: Test
-        run: docker run --network container:webapp-frontend curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
+        run: docker run --network container:wiki_wiki_1 curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
