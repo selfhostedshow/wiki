@@ -25,7 +25,7 @@ jobs:
             USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
             PORT: ${{ secrets.WIKI_SSH_PORT }}
             KEY: ${{ secrets.SSHKEY }}
-            script: cd ${{ secrets.PROJECT_PATH }} && git pull
+            script: cd ${{ secrets.PROJECT_PATH }} && git fetch && git checkout master && git pull
       - name: Build
         uses: appleboy/ssh-action@master
         with:
@@ -33,7 +33,7 @@ jobs:
             USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
             PORT: ${{ secrets.WIKI_SSH_PORT }}
             KEY: ${{ secrets.SSHKEY }}
-            script: cd ${{ secrets.PROJECT_PATH }} && docker-compose build
+            script: cd ${{ secrets.PROJECT_PATH }} && docker-compose run wiki build
 
       # Deploy
       - name: Deploy new image and cleanup
