@@ -36,11 +36,11 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 0. Verify the "dev" branch is checked out type `git checkout dev`.
 
 0. Type `git remote -v` to verify that the origin site was added.
-    
+
     ```
-    origin  https://github.com/YOURGITHUBSUSERNAME/wiki (fetch)  
+    origin  https://github.com/YOURGITHUBSUSERNAME/wiki (fetch)
     ```
-    
+
     ```
     origin  https://github.com/YOURGITHUBSUSERNAME/wiki (push)
     ```
@@ -89,7 +89,7 @@ This section will create a new pull request from your Github repo to the [Upstre
 
 0. Navigate to the Github [wiki](https://github.com/selfhostedshow/wiki) web interface.
 
-0. Click ![newpulrequest](images/newpullrequrest.png) in the top(ish) left, verify the the branch is set to "dev". 
+0. Click ![newpulrequest](images/newpullrequrest.png) in the top(ish) left, verify the the branch is set to "dev".
 
 0. Under Compare changes click "compare across forks" link, verify the **base** repository is the [upstream](https://github.com/selfhostedshow/wiki) site and the head repository is your repo.
 
@@ -113,7 +113,7 @@ This Section will "pull" from the [upstream](https://github.com/selfhostedshow/w
 ## Recommended Reading/Watching
 * [GitHub WorkFlow Introduction](https://guides.github.com/introduction/flow/)
 * [GitHub Training & Guides](https://www.youtube.com/githubguides)
-* [Docker Compose Cheatsheet](https://devhints.io/docker-compose) 
-* [Docker Getting Started](https://docs.docker.com/compose/gettingstarted/) 
+* [Docker Compose Cheatsheet](https://devhints.io/docker-compose)
+* [Docker Getting Started](https://docs.docker.com/compose/gettingstarted/)
 * [Markdown -- Github Help](https://help.github.com/en/github/writing-on-github)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
