@@ -1,6 +1,6 @@
 # Beginners Contributing Guide
 
-See the [Contribution Guidelines](https://wiki.selfhosted.show/basics/beginners-contributing-guide/) for information and objectives of the wiki.
+See the [Contribution Guidelines](https://wiki.selfhosted.show/wiki/contributing/) for information and objectives of the wiki.
 
 ## Prerequisites:
 * Docker is already running in your environment
