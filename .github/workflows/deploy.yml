@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       
       # Smoketest
-      - name: Build the wiki
-        run: docker-compose up -d
-      - name: Test container comes up and listens on port 8000
-        run: docker run --network container:wiki_wiki_1 curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
+      # - name: Build the wiki
+      #   run: docker-compose up -d
+      # - name: Test container comes up and listens on port 8000
+      #   run: docker run --network container:wiki_wiki_1 curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
       
       # Build
       - name: Pull latest changes on Linode node
