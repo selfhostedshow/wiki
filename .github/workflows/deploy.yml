@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to Linode
 
 on:
   push:
@@ -6,23 +6,41 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      
+      # Smoketest
+      - name: Build the wiki
+        run: docker-compose up -d
+      - name: Test container comes up and listens on port 8000
+        run: docker run --network container:wiki_wiki_1 curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
+      
+      # Build
+      - name: Pull latest changes on Linode node
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.WIKI_HOST }}
+            USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
+            PORT: ${{ secrets.WIKI_SSH_PORT }}
+            KEY: ${{ secrets.SSHKEY }}
+            script: cd ${{ secrets.PROJECT_PATH }} && git fetch && git checkout master && git pull
+      - name: Build
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.WIKI_HOST }}
+            USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
+            PORT: ${{ secrets.WIKI_SSH_PORT }}
+            KEY: ${{ secrets.SSHKEY }}
+            script: cd ${{ secrets.PROJECT_PATH }} && docker-compose run wiki build
 
-    - name: Build containers
-      run: docker-compose build
-
-    - name: Build site
-      run: docker-compose run wiki build -v
-
-    - name: Build production container
-      run: docker build --tag docker.pkg.github.com/${GITHUB_REPOSITORY,,}/prod:latest -f prod/Dockerfile .
-
-    - name: Log into GitHub Docker Registry
-      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY%/*} --password-stdin
-
-    - name: Push the Docker container
-      run: docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/prod:latest
+      # Deploy
+      - name: Deploy new image and cleanup
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.WIKI_HOST }}
+            USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
+            PORT: ${{ secrets.WIKI_SSH_PORT }}
+            KEY: ${{ secrets.SSHKEY }}
+            script: docker-compose -f ~/docker-compose.yml up -d && docker image prune -af
