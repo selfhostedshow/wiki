@@ -1,6 +1,6 @@
 # Beginners Contributing Guide
 
-See the [Contribution Guidelines](https://selfhostedshow.github.io/wiki/contributing/) for information and objectives of the wiki.
+See the [Contribution Guidelines](https://wiki.selfhosted.show/wiki/contributing/) for information and objectives of the wiki.
 
 ## Prerequisites:
 * Docker is already running in your environment
@@ -33,7 +33,7 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 
 0. Type `git clone https://github.com/YOURGITHUBSUSERNAME/wiki && cd wiki`.
 
-0. Verify the "dev" branch is checked out type `git checkout dev`.
+0. Verify the "master" branch is checked out type `git checkout master`.
 
 0. Type `git remote -v` to verify that the origin site was added.
     
@@ -67,29 +67,29 @@ __Note__: -f will define a docker-compose file and -d ("detached" mode) will sta
 
 0. Type `docker ps` to verify that the wiki container is running.
 
-0. Navigate to `http://DockerIP:8000` the "dev" branch wiki website will then open.
+0. Navigate to `http://DockerIP:8000` and wiki website will then open.
 
 0. Now edit the wiki site in your editor of choice and when you **save** the file, the site will be updated with the changes that are made enabling real time (more or less) verifying what the site will look like with the changes.
 
 #### 1.3 Merging an local repository into your Fork
-This Section will "merge" the local changes to your fork (your github repo that was made above in [section 1.1](https://github.com/selfhostedshow/wiki/tree/dev/docs\wiki/beginners-contributing-guide/#11-fork-clone-the-self-hosted-show-wiki))
+This Section will "merge" the local changes to your fork (your github repo that was made above in [section 1.1](https://github.com/selfhostedshow/wiki/tree/master/docs\basics/beginners-contributing-guide/#11-fork-clone-the-self-hosted-show-wiki))
 
 0. Type `git add YOURFILENAME1.md YOURFILENAME2.md` to add the changed files to your commit.
 
-0. Type `git commit -m 'meaningfully comment'` to commit the changes to your fork with comments.
+0. Type `git commit -m 'updated x,y,z'` to commit the changes to your fork with comments.
 
-0. Type  `git push origin dev` to push your commit to your fork.
+0. Type  `git push origin master` to push your commit to your fork.
 
 0. Type your username for github.
 
 0. Type your password for github.
 
-#### 1.4 Make a New Pull Request on the GitHub Website
+#### 1.3 Make a New Pull Request on the GitHub Website
 This section will create a new pull request from your Github repo to the [Upstream](https://github.com/selfhostedshow/wiki) wiki site.
 
 0. Navigate to the Github [wiki](https://github.com/selfhostedshow/wiki) web interface.
 
-0. Click ![newpulrequest](images/newpullrequrest.png) in the top(ish) left, verify the the branch is set to "dev". 
+0. Click ![newpullrequest](images/newpullrequrest.png) in the top(ish) left, verify the the branch is set to "master". 
 
 0. Under Compare changes click "compare across forks" link, verify the **base** repository is the [upstream](https://github.com/selfhostedshow/wiki) site and the head repository is your repo.
 
@@ -106,11 +106,9 @@ This Section will "pull" from the [upstream](https://github.com/selfhostedshow/w
 
 0. Type `git fetch upstream` to fetch the branches and their respective commits from the upstream repository
 
-0. Verify the "dev" branch is checked out type `git checkout dev`
+0. Verify the "master" branch is checked out type `git checkout master`
 
-0. Type `git merge upstream/dev` to bring your local branch in to sync with the [upstream](https://github.com/selfhostedshow/wiki) repository.
-
-__Note__: **When Feedback is submitted please push/commit to the same branch that was originally submitted BUT with changes!.**
+0. Type `git merge upstream/master` to bring your local branch in to sync with the [upstream](https://github.com/selfhostedshow/wiki) repository.
 
 ## Recommended Reading/Watching
 * [GitHub WorkFlow Introduction](https://guides.github.com/introduction/flow/)
