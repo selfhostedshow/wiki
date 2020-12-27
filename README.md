@@ -18,4 +18,8 @@ Sometimes, you just want to output the HTML into a directory, rather than use th
 
 `docker-compose run wiki build`
 
-The site will then be output into the `site/` directory
+The site will then be output into the `site/` directory.
+
+### Contribution Template
+
+The file `contribution-template.md` has been provided as a sample and possible starting point. It is located along with this `README` file. Feel free to copy and use the template.

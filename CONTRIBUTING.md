@@ -87,7 +87,7 @@ This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is in
 
 - Fork this repository in Github's web interface by pressing the fork icon.
 - Clone your fork and `cd` into the new directory: `git clone https://github.com/username/wiki && cd wiki`
-- Check out the "master" branch: `git checkout -b master`
+- Check out a new branch: `git checkout -b <branch_name>`
 - Make changes as desired to the files in the repository on your machine.
 - Add the changed files to your commit and commit the changes to your fork: `git add file1.md file2.md && git commit -m 'updated x,y,z'`
 - Push your commit to your fork: `git push origin master`
