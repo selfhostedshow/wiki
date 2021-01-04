@@ -71,9 +71,9 @@ __Note__: -f will define a docker-compose file and -d ("detached" mode) will sta
 
 0. Now edit the wiki site in your editor of choice and when you **save** the file, the site will be updated with the changes that are made enabling real time (more or less) verifying what the site will look like with the changes.
 
-#### 1.3 Merging an local repository into your Fork
+#### 1.3 Merging a local repository into your Fork
 
-This Section will "merge" the local changes to your fork (your github repo that was made above in [section 1.1](https://github.com/selfhostedshow/wiki/tree/master/docs\basics/beginners-contributing-guide/#11-fork-clone-the-self-hosted-show-wiki))
+This Section will "merge" the local changes to your fork (your github repo that was made above in [section 1.1](/wiki/beginners-contributing-guide/#11-fork-clone-the-self-hosted-show-wiki))
 
 0. Type `git add YOURFILENAME1.md YOURFILENAME2.md` to add the changed files to your commit.
 
