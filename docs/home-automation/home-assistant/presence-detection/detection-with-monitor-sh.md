@@ -196,7 +196,10 @@ Test that MQTT server is getting the new notifications from your Pi devices.
 mosquitto_sub -h 192.168.X.X -u username -P passwd -t monitor/#
 
 # Output
-{"id":"00:00:00:00:00:00","confidence":"100","name":"person1_Phone","manufacturer":"Apple Inc","type":"KNOWN_MAC","retained":"true","timestamp":"Fri Nov 06 2020 1
+{"id":"00:00:00:00:00:00","confidence":"100","name":"person1_Phone",
+  "manufacturer":"Apple Inc","type":"KNOWN_MAC","retained":"true",
+  "timestamp":"Fri Nov 06 2020 ...."
+}
 ```
 
 Here we can see that devices are being seen and their *confidence level* from the *monitor.sh* is being reported.
