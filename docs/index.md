@@ -12,5 +12,3 @@ The show is your gateway to self-hosting all the things. Discover new software t
 
 * [Linux Action News](https://linuxactionnews.com/) - A weekly Linux news and analysis podcast
 * [Linux Unplugged](http://linuxunplugged.com/) - Your virtual Linux User Group
-* [TechSNAP](https://techsnap.systems) - Your weekly Systems, Network and Administration Podcast
-* [User Error](https://error.show/) - Life is a series of mistakes, but that's what makes it interesting
