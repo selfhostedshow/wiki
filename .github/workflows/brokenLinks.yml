@@ -9,6 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Link Checker
         uses: lycheeverse/lychee-action@v1
+        with:
+          args: ./docs/**
       - name: Create Issue From File
         uses: peter-evans/create-issue-from-file@v2
         with:
