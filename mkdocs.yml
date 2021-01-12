@@ -16,8 +16,6 @@ extra:
       link: 'https://twitter.com/selfhostedshow'
     - icon: 'fontawesome/solid/fire'
       link: 'https://selfhosted.show/'
-    - icon: 'fontawesome/solid/microphone'
-      link: 'https://pocketcasts.com'
     - icon: 'fontawesome/solid/graduation-cap'
       link: 'https://linuxacademy.com'
     - icon: 'fontawesome/brands/linux'
