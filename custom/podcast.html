@@ -23,7 +23,7 @@ Get the show  <a href="https://selfhosted.show/{{page.meta.number}}">here</a></p
   Chapters:</br>
   <ol>
   {% for chapter in page.meta.chapters %}
-    <li>{{ chapter[0]}} at {{ chapter[1] }}</li>
+    <li>{{ chapter[0]}} at <a href="https://selfhosted.show/{{ page.meta.number }}?t={{chapter[1]}}">Play</a></li>
   {% endfor %}
   </ol>
 {% endif %}
