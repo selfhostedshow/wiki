@@ -3,7 +3,12 @@
 {%- block content %}
 {{ super() }}
 
-Publish Date: {{ page.meta.published }}</p>
+<p>Publish Date: {{ page.meta.published }}</p>
+
+{% if page.meta.summary %}
+{{ page.meta.summary }}
+</p>
+{% endif %}
 {% if page.meta.guests %}
 Guests:</br>
   <ul>
