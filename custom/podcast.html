@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{%- block content %}
+{{ super() }}
+
+Publish Date: {{ page.meta.published }}</p>
+{% if page.meta.guests %}
+Guests:</br>
+  <ul>
+  {% for guest in page.meta.guests %}
+    <li>{{ guest }}</li>
+  {% endfor %}
+  </ul>
+{% endif %}
+
+Get the show  <a href="https://selfhosted.show/{{page.meta.number}}">here</a></p>
+{% if page.meta.chapters %}
+  Chapters:</br>
+  <ol>
+  {% for chapter in page.meta.chapters %}
+    <li>{{ chapter[0]}} at {{ chapter[1] }}</li>
+  {% endfor %}
+  </ol>
+{% endif %}
+{%- endblock%}
