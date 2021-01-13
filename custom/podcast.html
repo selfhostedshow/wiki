@@ -3,7 +3,7 @@
 {%- block content %}
 {{ super() }}
 
-<p>Publish Date: {{ page.meta.published }}</p>
+<p>Publish Date: {{ page.meta.published.strftime("%b %d, %Y") }}</p>
 
 {% if page.meta.summary %}
 {{ page.meta.summary }}
@@ -13,17 +13,26 @@
 Guests:</br>
   <ul>
   {% for guest in page.meta.guests %}
-    <li>{{ guest }}</li>
+    <li>{{ guest.name }}</li>
+    {% if guest.about %}
+      <p style="text-indent: 40px"> {{ guest.about}} </p>
+      </br>
+      {% if guest.link %}
+        <p style="text-indent: 40px">Link:
+            <a href="{{ guest.link }}" target="_blank">{{ guest.link }}</a>
+        </p>
+      {% endif %}
+    {% endif %}
   {% endfor %}
   </ul>
 {% endif %}
 
-Get the show  <a href="https://selfhosted.show/{{page.meta.number}}">here</a></p>
+Get the show  <a href="https://selfhosted.show/{{page.meta.number}}" target="_blank">here</a></p>
 {% if page.meta.chapters %}
   Chapters:</br>
   <ol>
   {% for chapter in page.meta.chapters %}
-    <li>{{ chapter[0]}} at <a href="https://selfhosted.show/{{ page.meta.number }}?t={{chapter[1]}}">Play</a></li>
+    <li>{{ chapter.title }} at <a href="https://selfhosted.show/{{ page.meta.number }}?t={{chapter.time}}" target="_blank">Play</a></li>
   {% endfor %}
   </ol>
 {% endif %}
