@@ -16,3 +16,8 @@ Things here might include:
 ### Software
   * [docs.linuxserver.io](https://docs.linuxserver.io/)
   * [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
+
+### Additional resources
+  * [Awesome-Selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted): A list of many apps and services to selfhost
+  * [TheOrangeOne - Blog](https://theorangeone.net/posts/): A blog with articles around selfhosting from a member of this community.
+  * [ktz. - Blog](https://blog.ktz.me/): Blog from *Alex Kretzschmar* a.k.a. *Ironic Badger* from the Selfhosted Podcast
