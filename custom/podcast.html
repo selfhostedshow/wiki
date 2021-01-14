@@ -32,7 +32,7 @@ Get the show  <a href="https://selfhosted.show/{{page.meta.number}}" target="_bl
   Chapters:</br>
   <ol>
   {% for chapter in page.meta.chapters %}
-    <li>{{ chapter.title }} at <a href="https://selfhosted.show/{{ page.meta.number }}?t={{chapter.time}}" target="_blank">Play</a></li>
+    <li><a href="https://selfhosted.show/{{ page.meta.number }}?t={{chapter.time}}" target="_blank">{{ chapter.title }}</a></li>
   {% endfor %}
   </ol>
 {% endif %}
