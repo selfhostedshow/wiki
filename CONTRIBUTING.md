@@ -92,7 +92,7 @@ This Wiki is intended to be for _anyone_ -- regardless of expertise -- who is in
 - Add the changed files to your commit and commit the changes to your fork: `git add file1.md file2.md && git commit -m 'updated x,y,z'`
 - Push your commit to your fork: `git push origin master`
 - [Build the wiki locally](https://github.com/selfhostedshow/wiki/blob/master/CONTRIBUTING.md#build-locally) and check that your added content renders properly in your local build.
-- On Github's web interface go to your fork and set the branch to "dev". Then submit a pull request by selecting "New Pull Request".
+- On Github's web interface go to your fork and set the branch to `<branch_name>`. Then submit a pull request by selecting "New Pull Request".
 
 Not sure what to write about, take a look at our [issues](https://github.com/selfhostedshow/wiki/issues).
 
