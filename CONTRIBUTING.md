@@ -99,7 +99,7 @@ Not sure what to write about, take a look at our [issues](https://github.com/sel
 ## Other Resources
 
 For help with Markdown:  
-[MkDocs Cheatsheet ](https://3os.org/markdownCheatSheet/welcome/)  
+[MkDocs Cheatsheet](https://3os.org/markdownCheatSheet/welcome/)  
 [MkDocs -- Admonition](https://3os.org/markdownCheatSheet/admonition/)  
 [Markdown -- Github Help](https://help.github.com/en/github/writing-on-github)  
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)  
