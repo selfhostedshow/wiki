@@ -14,7 +14,7 @@ From the snapraid-btrfs repo:
 >
 > By using read-only snapshots when we do a `snapraid sync`, we ensure that if we modify or delete files during or after the sync, we can always restore the array to the state it was in at the time the read-only snapshots were created, so long as the snapshots are not deleted until another sync is completed with new snapshots. This use case for btrfs snapshots is similar to using `btrfs send/receive` to back up a live filesystem, where the use of read-only snapshots guarantees the consistency of the result, while using `dd` would require that the entire filesystem be mounted read-only to prevent corruption caused by writes to the live filesystem during the backup.
 
-Another benefit of using BTRFS for the data drives is it allows for online drive replacements (i.e. upgrades to larger drives) using `btrfs replace`. This means that the MergerFS pool can remain mounted with all data accessible for reads and writes while underyling data drives are being replaced. This guide includes instructions for replacing BTRFS data drives in the array.
+Another benefit of using BTRFS for the data drives is it allows for online drive replacements (i.e. upgrades to larger drives) using `btrfs-replace`. This means that the MergerFS pool can remain mounted with all data accessible for reads and writes while underyling data drives are being replaced. This guide includes instructions for replacing BTRFS data drives in the array.
 
 ## Prerequisites
 
