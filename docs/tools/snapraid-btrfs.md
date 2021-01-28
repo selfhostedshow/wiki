@@ -14,6 +14,8 @@ From the snapraid-btrfs repo:
 >
 > By using read-only snapshots when we do a `snapraid sync`, we ensure that if we modify or delete files during or after the sync, we can always restore the array to the state it was in at the time the read-only snapshots were created, so long as the snapshots are not deleted until another sync is completed with new snapshots. This use case for btrfs snapshots is similar to using `btrfs send/receive` to back up a live filesystem, where the use of read-only snapshots guarantees the consistency of the result, while using `dd` would require that the entire filesystem be mounted read-only to prevent corruption caused by writes to the live filesystem during the backup.
 
+Another benefit of using BTRFS for the data drives is it allows for online drive replacements (i.e. upgrades to larger drives) using `btrfs replace`. This means that the MergerFS pool can remain mounted with all data accessible for reads and writes while underyling data drives are being replaced. This guide includes instructions for replacing BTRFS data drives in the array.
+
 ## Prerequisites
 
 Install Ubuntu 20.04 as per the [Manual Install on Bare Metal](https://perfectmediaserver.com/installation/manual-install/) guide at Perfect Media Server, and follow the steps until the end of the _Brand new drives_ section, resulting in a bare filesystem on each drive.
@@ -294,3 +296,86 @@ Enable using:
 systemctl enable snapraid-btrfs-runner.timer
 systemctl start snapraid-btrfs-runner.timer
 ```
+
+## Online Data Drive Replacements
+
+BTRFS allows for online replacements of data drives using `btrfs-replace`. This allows for replacing data drives with larger ones without ever having to unmount the MergerFS array. In fact, MergerFS is ignorant to the operation since from its perspective, the member mount point always remains accessible while BTRFS conducts the drive replacement on the backend. The target drive needs to be the same size or larger than the source drive.
+
+Use the following steps to replace a BTRFS drive in the above array, e.g. `/mnt/disk1`.
+
+!!! warning
+    Verify that the correct drive is being replaced. Check both source and target drives using serial numbers in `/dev/disk/by-id` or similar unique identifiers prior to starting the replacement.
+
+Check the current BTRFS filesystem state:
+
+```shell
+# btrfs filesystem show /mnt/disk1    
+Label: 'mergerfsdisk1'  uuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        Total devices 1 FS bytes used 10.14TiB
+        devid    1 size 10.91TiB used 10.17TiB path /dev/sds1
+```
+
+!!! note
+    BTRFS filesystem-related commands can be carried out at any mountpoint that the filesystem is mounted on. This includes the root mountpoint or any subvolumes that are mounted. In this example, commands are executed at the `/mnt/disk1` subvolume mountpoint created above as it's already conveniently mounted.
+
+On the new drive, create a filesystem table and primary partition as described at Perfect Media Server. Assuming the replacement device is `/dev/sdy1`, start the BTRFS replacement with the following command:
+
+```bash
+btrfs replace start 1 /dev/sdy1 /mnt/disk1
+```
+
+where `1` refers to the `devid` from the above filesystem output. This command will produce no output, and BTRFS will have started the replacement in the background.
+
+To check the status of the replacement:
+
+```bash
+btrfs replace status -1 /mnt/disk1
+```
+
+which provides the current status and exits. To continuously monitor the replacement status, run the `btrfs replace status` command with the `-1` omitted.
+
+Details of the filesystem during the drive replacement will appear as follows:
+
+```shell
+# btrfs filesystem show /mnt/disk1
+Label: 'mergerfsdisk1'  uuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        Total devices 2 FS bytes used 10.14TiB
+        devid    0 size 10.91TiB used 10.17TiB path /dev/sdy1
+        devid    1 size 10.91TiB used 10.17TiB path /dev/sds1
+```
+
+Once the drive replacement is successfully completed, the above `btrfs replace status` command would result in the following output:
+
+```shell
+# btrfs replace status /mnt/disk1
+Started on 26.Jan 20:14:52, finished on 27.Jan 12:43:39, 0 write errs, 0 uncorr. read errs
+```
+
+Details of the filesystem after the drive replacement will appear as follows:
+
+```shell
+# btrfs filesystem show /mnt/disk1
+Label: 'mergerfsdisk1'  uuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        Total devices 1 FS bytes used 10.14TiB
+        devid    1 size 10.91TiB used 10.17TiB path /dev/sdy1
+```
+
+If the target drive is larger than the source drive, the BTRFS filesystem will need to be resized to take advantage of the full space:
+
+```shell
+$ btrfs filesystem resize 1:max /mnt/disk1
+Resize '/mnt/disk1' of '1:max'
+```
+
+where `1` refers to the `devid` from above (which is now the new device) and `max` indicates that the filesystem should use all the available space on the drive.
+
+The final details of the filesystem will now appear as follows:
+
+```shell
+# btrfs filesystem show /mnt/disk1
+Label: 'mergerfsdisk1'  uuid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        Total devices 1 FS bytes used 10.14TiB
+        devid    1 size 12.73TiB used 10.17TiB path /dev/sdy1
+```
+
+At this point, the replacement operation is complete and the MergerFS pool should be able to see the additional space.
