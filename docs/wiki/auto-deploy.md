@@ -22,17 +22,9 @@ The workflow builds the exact same container as in local development, so the out
 
 The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server.
 
-### 4. Publish Container
+### 4. Container Update and Prune
 
-Once the production container is built, it's pushed to GitHub's [container registry](https://github.com/selfhostedshow/infrastructure/packages).
-
-### 5. Server Pull
-
-Every 30 seconds, the server polls GitHub's container registry for new containers, using [watchtower](https://containrrr.github.io/watchtower/). When a new container is pulled, it's
-
-### 6. Restart
-
-Once the new container is pulled, watchtower stops the running container, and replaces it with the new one. This is done automatically as quickly as possible, to minimise potential downtime during the switchover.
+Once the build of the production container is complete it is started on the server using `docker-compose`. Within the same step the old image is pruned. This is done automatically as quickly as possible, to minimise potential downtime during the switchover.
 
 ## Configuration
 
@@ -40,7 +32,6 @@ The configuration for all this is available on [GitHub](https://github.com/selfh
 
 Some notable files:
 
-- [GitHub Actions deploy workflow](https://github.com/selfhostedshow/wiki/blob/dev/.github/workflows/deploy.yml)
-- Production [Dockerfile](https://github.com/selfhostedshow/wiki/blob/dev/prod/Dockerfile) and [`nginx.conf`](https://github.com/selfhostedshow/wiki/blob/dev/prod/nginx.conf)
-- watchtower [`docker-compose.yml`](https://github.com/selfhostedshow/infrastructure/blob/master/ansible/roles/watchtower/files/docker-compose.yml)
-- wiki [`docker-compose.yml`](https://github.com/selfhostedshow/infrastructure/blob/master/ansible/roles/wiki/files/docker-compose.yml)
+- [GitHub Actions deploy workflow](https://github.com/selfhostedshow/wiki/blob/master/.github/workflows/deploy.yml)
+- Production [Dockerfile](https://github.com/selfhostedshow/wiki/blob/master/prod/Dockerfile) and [`nginx.conf`](https://github.com/selfhostedshow/wiki/blob/master/prod/nginx.conf)
+- wiki [`docker-compose.yml`](https://github.com/selfhostedshow/wiki/blob/master/docker-compose.yml)
