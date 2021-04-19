@@ -16,15 +16,15 @@ After a successful code review, the PR is merged. On merge, a GitHub Actions wor
 
 ### 2. Build Site
 
-The workflow builds the exact same container as in local development, so the output build is exactly the same. Unlike local development, this doesn't spin up a development server, instead it saves the site to the filesystem.
+The workflow builds the exact same container as in local development, so the output build is exactly the same. Unlike local development, this doesn't spin up a development server, instead it saves the site to the filesystem of the production server ready for use later on.
 
 ### 3. Build Production Container
 
-The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server.
+The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server. This container is kept locally on the production server and is not pushed to any registry. 
 
 ### 4. Container Update and Prune
 
-Once the build of the production container is complete it is started on the server using `docker-compose`. Within the same step the old image is pruned. This is done automatically as quickly as possible, to minimise potential downtime during the switchover.
+Once the build of the production custom container is complete it is started on the server using `docker-compose`. Within the same step the old image is pruned. This is done automatically as quickly as possible, to minimise potential downtime during the switchover. [`nginx.conf`](https://github.com/selfhostedshow/wiki/blob/master/prod/nginx.conf) utilizes the filesystem output of step 2 for the wiki content.
 
 ## Configuration
 
