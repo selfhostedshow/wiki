@@ -20,7 +20,7 @@ The workflow builds the exact same container as in local development, so the out
 
 ### 3. Build Production Container
 
-The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server. This container is kept locally on the production server and is not pushed to any registry. 
+The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server. This container is built locally on the production server and is not pushed to any registry. 
 
 ### 4. Container Update and Prune
 
