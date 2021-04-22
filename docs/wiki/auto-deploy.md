@@ -14,17 +14,20 @@ Here's how the autodeploy works:
 
 After a successful code review, the PR is merged. On merge, a GitHub Actions workflow starts.
 
-### 2. Build Site
+### 2. Download to Production Server
 
-The workflow builds the exact same container as in local development, so the output build is exactly the same. Unlike local development, this doesn't spin up a development server, instead it saves the site to the filesystem of the production server ready for use later on.
+The workflow downloads the project to the production server using `git fetch`, `git checkout` and `git pull`.
 
-### 3. Build Production Container
+### 3. Build Site
 
-The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server. This container is kept locally on the production server and is not pushed to any registry. 
+The workflow builds the exact same container as in local development, so the output build is exactly the same. Unlike local development, this doesn't spin up a development server, instead it saves the site to the filesystem.
 
-### 4. Container Update and Prune
+!!! note "Production vs Development"
+    The development server which comes with `mkdocs` isn't suited, nor suitable, for a production environment. For this, we build a custom container based off [NGINX](https://hub.docker.com/_/nginx/), which is far better suited, and allows for more control over the server. This container is kept locally on the production server and is not pushed to any registry. 
 
-Once the build of the production custom container is complete it is started on the server using `docker-compose`. Within the same step the old image is pruned. This is done automatically as quickly as possible, to minimise potential downtime during the switchover. [`nginx.conf`](https://github.com/selfhostedshow/wiki/blob/master/prod/nginx.conf) utilizes the filesystem output of step 2 for the wiki content.
+### 4. Restarting Container and Prune
+
+Once the build of the site is complete the custom container (please see the note below) is started on the server using `docker-compose`. Within the same step old images are pruned. This is done automatically as quickly as possible, to minimize potential downtime during the switchover. The container utilizes the filesystem output of step 3 for the wiki content.
 
 ## Configuration
 
@@ -33,5 +36,4 @@ The configuration for all this is available on [GitHub](https://github.com/selfh
 Some notable files:
 
 - [GitHub Actions deploy workflow](https://github.com/selfhostedshow/wiki/blob/master/.github/workflows/deploy.yml)
-- Production [Dockerfile](https://github.com/selfhostedshow/wiki/blob/master/prod/Dockerfile) and [`nginx.conf`](https://github.com/selfhostedshow/wiki/blob/master/prod/nginx.conf)
-- wiki [`docker-compose.yml`](https://github.com/selfhostedshow/wiki/blob/master/docker-compose.yml)
+- wiki [`docker-compose.yml`](https://github.com/selfhostedshow/infra/blob/master/ansible/group_vars/demo.yaml#L133)
