@@ -7,9 +7,9 @@ See the [Contribution Guidelines](https://wiki.selfhosted.show/wiki/contributing
 * You have a [Github](https://github.com) account and are logged in
 * This guide was written for linux
 
-__Note__: **This document will use variables thought out make sure to change them as needed.**
+__Note__: **This document will use variables throughout make sure to change them as needed.**
 
-### 1. Install Git
+### Install Git
 This section will install Git.
 
 0. Log in to the your computer or server you are going to use for Git.
@@ -22,7 +22,7 @@ This section will install Git.
 
 0. Type `git config --list` to verify the email address and username.
 
-#### 1.1 Fork & Clone the Self-Hosted Show wiki
+#### Fork & Clone the Self-Hosted Show wiki
 This section will Fork the entire Self-Hosted Show wiki to your Github account, and then clone the fork in order to enable local editing.
 
 0. Navigate to the [upstream](https://github.com/selfhostedshow/wiki).
@@ -31,18 +31,18 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 
 0. Log in to your computer or server you are going to use for Git and `cd` to the directory you want to download the wiki repository to.
 
-0. Type `git clone https://github.com/YOURGITHUBSUSERNAME/wiki && cd wiki`.
+0. Type `git clone https://github.com/GITHUBSUSERNAME/wiki && cd wiki`.
 
 0. Verify the "master" branch is checked out type `git checkout master`.
 
 0. Type `git remote -v` to verify that the origin site was added.
     
     ```
-    origin  https://github.com/YOURGITHUBSUSERNAME/wiki (fetch)  
+    origin  https://github.com/GITHUBSUSERNAME/wiki (fetch)  
     ```
     
     ```
-    origin  https://github.com/YOURGITHUBSUSERNAME/wiki (push)
+    origin  https://github.com/GITHUBSUSERNAME/wiki (push)
     ```
 
 0. Specify a new [upstream](https://github.com/selfhostedshow/wiki) repository that will be synced with this fork, type `git remote add upstream https://github.com/selfhostedshow/wiki`.
@@ -50,13 +50,13 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 0. Verify the new [upstream](https://github.com/selfhostedshow/wiki) repository you've specified for your fork, type `git remote -v`, the output should look like the below.
 
 ```bash
-origin  https://github.com/YOURGITHUBSUSERNAME/wiki (fetch)
-origin  https://github.com/YOURGITHUBSUSERNAME/wiki (push)
+origin  https://github.com/GITHUBSUSERNAME/wiki (fetch)
+origin  https://github.com/GITHUBSUSERNAME/wiki (push)
 upstream        https://github.com/selfhostedshow/wiki (fetch)
 upstream        https://github.com/selfhostedshow/wiki (push)
 ```
 
-#### 1.2 Start the Wiki Docker Container
+#### Start the Wiki Docker Container
 This section will start the wiki docker container in the local environment.
 
 __Note__: The below path may be different, depending on where the wiki was cloned to.
@@ -71,13 +71,13 @@ __Note__: -f will define a docker-compose file and -d ("detached" mode) will sta
 
 0. Now edit the wiki site in your editor of choice and when you **save** the file, the site will be updated with the changes that are made enabling real time (more or less) verifying what the site will look like with the changes.
 
-#### 1.3 Merging a local repository into your Fork
+#### Merging a local repository into your Fork
 
-This Section will "merge" the local changes to your fork (your github repo that was made above in [section 1.1](/wiki/beginners-contributing-guide/#11-fork-clone-the-self-hosted-show-wiki))
+This Section will "merge" the local changes to your fork (your github repo that was made above in [Fork & Clone the Self-Hosted Show wiki](/wiki/beginners-contributing-guide/#11-fork-clone-the-self-hosted-show-wiki))
 
-0. Type `git add YOURFILENAME1.md YOURFILENAME2.md` to add the changed files to your commit.
+0. Type `git add example1.md example2.png` to add the changed files to your commit.
 
-0. Type `git commit -m 'updated x,y,z'` to commit the changes to your fork with comments.
+0. Type `git commit -m "updated x,y,z"` to commit the changes to your fork with comments.
 
 0. Type  `git push origin master` to push your commit to your fork.
 
@@ -85,7 +85,7 @@ This Section will "merge" the local changes to your fork (your github repo that 
 
 0. Type your password for github.
 
-#### 1.4 Make a New Pull Request on GitHub
+#### Make a New Pull Request on GitHub
 
 This section will create a new pull request from your Github repo to the [Upstream](https://github.com/selfhostedshow/wiki) wiki site.
 
@@ -101,7 +101,7 @@ This section will create a new pull request from your Github repo to the [Upstre
 
 0. The commit has now been added to the pull request the Wiki-Admins will review and if approved will get pushed to the master branch for publishing.
 
-### 2 Syncing a Fork
+### Syncing a Fork
 This Section will "pull" from the [upstream](https://github.com/selfhostedshow/wiki) repository to your local repository. **This should be done every time before you make any changes to your local wiki in order to make sure everything is in sync**.
 
 0. Verify you are in the wiki directory.
@@ -111,8 +111,6 @@ This Section will "pull" from the [upstream](https://github.com/selfhostedshow/w
 0. Verify the "master" branch is checked out type `git checkout master`
 
 0. Type `git merge upstream/master` to bring your local branch in to sync with the [upstream](https://github.com/selfhostedshow/wiki) repository.
-
-__Note__: **When Feedback is submitted please push/commit to the same branch that was originally submitted BUT with changes!.**
 
 ## Recommended Reading/Watching
 * [GitHub WorkFlow Introduction](https://guides.github.com/introduction/flow/)
