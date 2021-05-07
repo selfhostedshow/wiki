@@ -3,11 +3,25 @@ site_url: https://wiki.selfhosted.show
 repo_url: https://github.com/selfhostedshow/wiki
 theme:
   name: 'material'
-  palette:
-    primary: 'amber'
-    accent: 'orange'
+  font:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
+  logo: assets/logo.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: light
+      primary: 'amber'
+      accent: 'orange'
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Embrace the dark side
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: 'deep orange'
+      accent: 'amber'
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -37,3 +51,6 @@ plugins:
   - search
   - minify:
       minify_html: true
+
+extra_css:
+  - stylesheets/extra.css
