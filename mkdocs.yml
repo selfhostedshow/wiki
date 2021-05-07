@@ -7,8 +7,20 @@ theme:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
   palette:
-    primary: 'amber'
-    accent: 'orange'
+    - media: "(prefers-color-scheme: light)"
+      scheme: light
+      primary: 'amber'
+      accent: 'orange'
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Embrace the dark side
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: 'deep orange'
+      accent: 'amber'
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 extra:
   social:
     - icon: 'fontawesome/brands/github'
