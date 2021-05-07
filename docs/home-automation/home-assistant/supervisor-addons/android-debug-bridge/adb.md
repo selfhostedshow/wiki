@@ -8,7 +8,7 @@ This guide walks you though how to configure Android Debug Bridge for controllin
 
 Initially you will need to install the add-on through the Home Assistant Supervisor Add-on Store. Once the Add-on is installed you will need to configure your devices as per the example below. 
 
- ```Config
+```Config
     devices:
     - 1.2.3.4
     - 4.3.2.1
