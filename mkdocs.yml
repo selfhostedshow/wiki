@@ -3,11 +3,12 @@ site_url: https://wiki.selfhosted.show
 repo_url: https://github.com/selfhostedshow/wiki
 theme:
   name: 'material'
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
   palette:
     primary: 'amber'
     accent: 'orange'
-    text: 'Ubuntu'
-    code: 'Ubuntu Mono'
 extra:
   social:
     - icon: 'fontawesome/brands/github'
