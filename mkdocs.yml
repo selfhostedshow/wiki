@@ -6,6 +6,7 @@ theme:
   font:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
+  logo: assets/logo.png
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: light
