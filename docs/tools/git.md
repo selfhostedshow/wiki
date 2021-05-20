@@ -20,7 +20,7 @@ Branches are used for having multiple versions of the files with diverging timel
 
 ### Example
 
-Alice and Bob are writing a story together. Alice decides that they should have the mentor of the main character turn out to be a close relive. They want it to be hinted at throughout the book, but that requires changes throughout the book. They are not sure if the story is going to turn out well that way and it will be hard to separate out the changes that Alice makes if they both make them on the same version of the book. This is because there is no point in history of the book that all of Bob's changes will be made but none of Alice's. The solution is to use branches to keep track of the changes separately and then merge the changes if desired.
+Alice and Bob are writing a story together. Alice decides that they should have the mentor of the main character turn out to be a close relative. They want it to be hinted at throughout the book, but that requires changes throughout the book. They are not sure if the story is going to turn out well that way and it will be hard to separate out the changes that Alice makes if they both make them on the same version of the book. This is because there is no point in history of the book that all of Bob's changes will be made but none of Alice's. The solution is to use branches to keep track of the changes separately and then merge the changes if desired.
 
 ### Practical
 
