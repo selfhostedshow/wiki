@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{%- block site_meta %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if page and page.is_homepage %}<meta name="description" content="{{ config['site_description'] }}">{% endif %}
+  {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
+  {% if page and page.meta.canonical_url %}
+    <link rel="canonical" href="{{ page.meta.canonical_url }}">
+  {% else %}
+    {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+  {% endif %}
+  {% if config.site_favicon %}<link rel="shortcut icon" href="{{ config.site_favicon|url }}">
+  {% else %}<link rel="shortcut icon" href="{{ 'img/favicon.ico'|url }}">
+  {% endif %}
+{%- endblock %}
+
+{%- block content %}
+  {% if page and page.meta.canonical_url %} 
+      <center>1. Originally posted on: <a href="{{ page.meta.canonical_url}}">
+        {{ page.meta.canonical_url.split("//")[-1].split("/")[0] }}</a>
+      </center>
+      <center>2. Originally posted on: <a href="{{ page.meta.canonical_url}}">
+        {{ page.meta.canonical_url.split(":")[0] }}://{{ page.meta.canonical_url.split("//")[-1].split("/")[0] }}/</a>
+      </center>
+  {% endif %}
+  {{ super() }}
+  {% if page and page.meta.canonical_url %} 
+      <center>Originally posted: <a href="{{ page.meta.canonical_url}}">
+        {{ page.meta.canonical_url.split(":")[0] }}://{{ page.meta.canonical_url.split("//")[-1].split("/")[0] }}/</a></center>
+  {% endif %}
+{%- endblock %}
