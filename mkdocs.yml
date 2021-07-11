@@ -3,6 +3,7 @@ site_url: https://wiki.selfhosted.show
 repo_url: https://github.com/selfhostedshow/wiki
 theme:
   name: 'material'
+  custom_dir: custom
   font:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'

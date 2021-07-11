@@ -24,4 +24,6 @@ The site will then be output into the `site/` directory.
 
 ### Contribution Template
 
-The file `contribution-template.md` has been provided as a sample and possible starting point. It is located along with this `README` file. Feel free to copy and use the template.
+The file `contribution-template.md` has been provided as a sample and possible starting point. It is located along with this `README` file. Feel free to copy and use this template.
+
+The file `canonocal-template.md` has been provided as a sample and possible starting point if you wish to cross-post an article from your own blog. It is located along with this `README` file. Feel free to copy and use this template.
