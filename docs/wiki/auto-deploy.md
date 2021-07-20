@@ -27,7 +27,7 @@ The workflow builds the exact same container as in local development, so the out
 
 ### 4. Restarting Container and Prune
 
-Once the build of the site is complete the custom container (please see the note below) is started on the server using `docker-compose`. Within the same step old images are pruned. This is done automatically as quickly as possible, to minimize potential downtime during the switchover. The container utilizes the filesystem output of step 3 for the wiki content.
+Once the build of the site is complete the custom container (please see the note below) is started on the server using `docker-compose`. Within the same step old images are pruned. This is done automatically as quickly as possible, to minimize potential downtime during the switchover.
 
 ## Configuration
 
