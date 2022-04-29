@@ -1,7 +1,7 @@
 # Self Hosted Wikis
 Choosing a wiki early on in a self-hosted setup is a great idea. Perhaps even before you have a dedicated server, having something in place to keep track of changes and create self-help pages for the home lab can help build the habit of writing things down before you wish you did.
 
-As always, check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#wikis) but here are our favourites.
+As always, check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#wikis) but here are our favorites.
 
 ## Tiddlywiki
 As the [Tiddlywiki](https://tiddlywiki.com/) website states that TiddlyWiki is "a non-linear personal web notebook". Because of the design of tiddlywiki, one could potentially argue it is better suited for those who like to write down a quick idea in order to come back later. It is able to be designed with contents, menus, and sub-menus.
