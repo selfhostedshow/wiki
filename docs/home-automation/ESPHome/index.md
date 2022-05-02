@@ -1,7 +1,9 @@
 # ESPHome (https://esphome.io/)
 
 ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.
+
 ## Introduction
+
 ESPHome is another alternative firmware for the ESP8266.
 Installation to the device is done in a couple different ways;
 
@@ -15,6 +17,7 @@ Installation to the device is done in a couple different ways;
 * [ESPHome DIY Examples](https://esphome.io/guides/diy.html)
 
 ## Installation of Software
+
 The main ways of installing ESPHome on a Computer are:
 
 * Docker (images for AMD64, ARM and ARM64(AARCH64) an HomeAssistant)
