@@ -84,7 +84,7 @@ The table shows the list of *reserved* IPv4 space that is only used on internal 
 Dynamic IPs address are one of the ways IPs get "assigned" on network and can be external or internal, this is done automatically when new devices are plugged in to the network. IP address are given out (or set statically) using a network protocol called Dynamic Host Configuration protocol (DHCP).
 
 ##### Dynamic IP
-In home networks your external IP is going to be dynamic, meaning that it can change ether when the modem is restarted or when the "lease" time the ISP uses has expired. Depending on how you want to set your (self hosted) network up you may not want the IP address to change, knowing what that address is allows you to use it to "find" your home network on the internet.
+In home networks your external IP is going to be dynamic, meaning that it can change either when the modem is restarted or when the "lease" time the ISP uses has expired. Depending on how you want to set your (self hosted) network up you may not want the IP address to change, knowing what that address is allows you to use it to "find" your home network on the internet.
 
 Using dynamic IPs on your home network is the "default". at home you have control of what is Dynamic and what is static, normally a modem or router is controlling the DHCP for the network.
 
@@ -101,42 +101,42 @@ A subnet is a logical subdivision of an IP network. When a network is divided in
 
 ### Network Address Translation (NAT)
 NAT is a method of remapping one IP address to another, this is used to "covert" external IPs to internal IPs and vice versa, when traversing the internet.
-The technique was originally used to avoid the need to give a new address to every host when a network was move, or if the ISP was replaced. Using a NATed address can also help with [IPv4 exhaustion](https://www.apnic.net/community/ipv4-exhaustion/ipv4-exhaustion-details/). NATing is normally done ether at the modem, router or firewall.
+The technique was originally used to avoid the need to give a new address to every host when a network was moved, or if the ISP was replaced. Using a NATed address can also help with [IPv4 exhaustion](https://www.apnic.net/community/ipv4-exhaustion/ipv4-exhaustion-details/). NATing is normally done either at the modem, router or firewall.
 
 ![NAT](images/self_hosting_terminology_overview_nat.svg)
 
 ### Dynamic Host Configuration protocol (DHCP)
-DHCP is a management protocol used in IP networks, DHCP (dynamically) assigns IP address to any IP device on a network. [DHCP options](https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml) can be used to assign numerous other things, for example subnets, gateways, domain name server (DNS) and network time protocol (NTP) to name a few. DHCP can be hosted on ether a modem,router,server or switch depending on the use case.
+DHCP is a management protocol used in IP networks, DHCP (dynamically) assigns IP address to any IP device on a network. [DHCP options](https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml) can be used to assign numerous other things, for example subnets, gateways, domain name server (DNS) and network time protocol (NTP) to name a few. DHCP can be hosted on either a modem, router, server or switch depending on the use case.
 
 ### Domain Name Server (DNS)
 DNS is a hierarchical and decentralized naming system for web pages, that is used on the internet and internal networks. DNS will take a website like [Google](https://google.com) and map the domain name google.com to an IP address or in Google's case (and other large organizations) lots of IPs. if you type "172.217.15.110 in to your browser you will get redirected to google.com. DNS in its most basic form is like the [yellow pages](https://en.wikipedia.org/wiki/Yellow_pages) for the internet. 
 
 ### Dynamic Domain Name Server (DDNS) 
-DDNS allows for automatically updating of traditional DNS records without manual editing. This is useful for self hosting becurse without paying for a static address "mapping" a domain to an IP AND having it automatically update would be a manual process.
+DDNS allows for automatically updating of traditional DNS records without manual editing. This is useful for self hosting because without paying for a static address "mapping" a domain to an IP AND having it automatically update would be a manual process.
 
 ### Broadcast Domain
 A broadcast domain is a logical separation of a network, all nodes on a broadcast domain can reach each other.
 
 ### Virtual Local Area Network (VLAN)
-A VLAN is a broadcast domain that is partitioned in to smaller networks, but the networks are unable to communicate with one another. they are physically connected to the same switch, thus removing the need more for multiple cables. VLANs work by applying tags to network frames that to humans are just numbers for example you could have VLANs 10,20,30,40,50 or 2,3,4,5,6 all based on how the network is configured.
+A VLAN is a broadcast domain that is partitioned in to smaller networks, but the networks are unable to communicate with one another. They are physically connected to the same switch, thus removing the need more for multiple cables. VLANs work by applying tags to network frames that to humans are just numbers for example you could have VLANs 10,20,30,40,50 or 2,3,4,5,6 all based on how the network is configured.
 
 ### Internet Protocol Version 6 (IPv6) addresses
-IPv6 is the latest version of the internet protocol, IPv6 reuses a lot of the concepts from IPv4 but many are updated and work differently than they did before.  IPv6 was created in order to deal with a long-anticipated problem of IPv4 address exhaustion, even using NAT we have run out of "blocks" of IPv4 address that are given out to ISP ect.  Most company's and ISPs are configuring there networks for IPv6 "dual stack" mode, this allows every network device to have an IPv4 and IPv6 address so that data weather its IPv4 or 6 can be process simultaneously.
+IPv6 is the latest version of the internet protocol, IPv6 reuses a lot of the concepts from IPv4 but many are updated and work differently than they did before.  IPv6 was created in order to deal with a long-anticipated problem of IPv4 address exhaustion, even using NAT we have run out of "blocks" of IPv4 address that are given out to ISPs etc.  Most companies and ISPs are configuring there networks for IPv6 "dual stack" mode, this allows every network device to have an IPv4 and IPv6 address so that data whether its IPv4 or 6 can be process simultaneously.
 
 ### Secure Shell (SSH)
 SSH is a cryptographic network protocol (its encrypted), it allows the creation of SSH tunnels in order to configure remote services (servers) over an unsecured network. 
 
 ### Hostname
-A hostname is a "label" that is assigned to a device on a network in order to uniquely identify. For example a hostname of a device on a network could be "saturn".
+A hostname is a "label" that is assigned to a device on a network in order to uniquely identify it. For example a hostname of a device on a network could be "saturn".
 
 ### Domain
-A domain name is a identification system, used on networks and the internet. and its used to define an "area" of administrative control on any network.For example a domain name of a network could be "solarsystem" that would represent all devices on that network as they would all be on the same domain.
+A domain name is a identification system, used on networks and the internet and it's used to define an "area" of administrative control on any network. For example a domain name of a network could be "solarsystem" that would represent all devices on that network as they would all be on the same domain.
 
 ### Fully Qualified Domain Name (FQDN)
 A FQDN includes both the hostname and the domain name. Thus identifying not just a system name that could be on any domain on the planet but a specific device on a specific domain for example "saturn.solarsystem.com"
 
 ### Wireless Access point (WAP)
-A WAP or just access point (AP) is a networking device that allows other Wi-Fi devices to connect to to a wired network. A WAP could be built in to a router or it can be a standalone.
+A WAP or just access point (AP) is a networking device that allows other Wi-Fi devices to connect to a wired network. A WAP could be built into a router or it can be a standalone.
 
 ### Local Area Network (LAN)
 A LAN is a generic term that references a network with in a limited area like a home, school, office.
@@ -151,13 +151,13 @@ A HDD is a electro-mechanical storage device that uses magnetic storage to store
 A SSD uses integrated circuits to store data, typically using flash memory just like a USB flash drive.
 
 ### Network Attached Storage (NAS)
-A NAS is a purpose built appliance for storing and sharing data. Depending on the NAS 2.5 HDD or SSD and 2.5 HDD or SSD are supported depending on the type of data that needs to be stored, and the amount of money thats going to be spent. The main advantage when using a NAS is being able to share data with multiple devices at the same time.
+A NAS is a purpose built appliance for storing and sharing data. Depending on the NAS 2.5 HDD or SSD and 2.5 HDD or SSD are supported depending on the type of data that needs to be stored, and the amount of money that's going to be spent. The main advantage when using a NAS is being able to share data with multiple devices at the same time.
 
 ### Hypervisor
-A hypervisor is software that creates and runs virtual machines, on top of the same hardware. some examples are Microsoft Hyper-V, Xbox One System Software, VMware ESXi and Xen.
+A hypervisor is software that creates and runs virtual machines, on top of the same hardware. Some examples are Microsoft Hyper-V, Xbox One System Software, VMware ESXi and Xen.
 
 ### Operation system level virtualization or Containers
-A container is an isolated application that runs on top of a shared kernel normally with other containers. Containers inherently work different than a virtual machines and there for have some different use cases. For example running a development environment for a website might be a good use for a container. 
+A container is an isolated application that runs on top of a shared kernel normally with other containers. Containers inherently work differently than virtual machines and therefore have some different use cases. For example running a development environment for a website might be a good use for a container. 
 
 __Note__: **The diagrams in this article were made with [Draw.Io](https://app.diagrams.net/).**
 
@@ -174,4 +174,3 @@ __Note__: **The diagrams in this article were made with [Draw.Io](https://app.di
 * [What is a Container](https://www.docker.com/resources/what-container)
 * [How to Subnet](http://mcsalearning.blogspot.com/2017/04/subnetting-a-tcp-ip-network-using-the-magic-box-method.html) 
 * [VMs vs Containers](https://www.backblaze.com/blog/vm-vs-containers/)
-* [what is a container](https://www.docker.com/resources/what-container)
