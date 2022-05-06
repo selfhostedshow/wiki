@@ -10,14 +10,14 @@ The show is your gateway to self-hosting all the things. Discover new software t
 
 ## SSH Storage Leaderboard
 
-| Rank | Guest            | Storage | Episode Timestamp                       | Notes |
-|------|------------------|---------|-----------------------------------------|-------|
-| #1   | Wendell Wilson   | 1 PB    | [#2 15:12](https://selfhosted.show/2)   | ZFS and Beehive |
-| #2   | JDM              | 500 TB  | [#21 37:01](https://selfhosted.show/21) | Split between Unraid boxes |
-| #3   | Jeff Geerling    | 84 TB   | [#41 29:51](https://selfhosted.show/41) | 60 TB unallocated for projects |
-| #4   | Fuzzy Mistborn   | 70 TB   | [#TBD](https://selfhosted.show/70)      | Debate about whether or not to count off-site storage |
-| #5   | Jake Howard      | 14 TB   | [#42 34:45](https://selfhosted.show/42) | Was hoping for lowest (golf) score! |
-| #6   | Paulus Schoutsen | 8 TB    | [#45 20:12](https://selfhosted.show/45) | Creator of the Home Assistant Project |
+| Rank | Guest            | Storage | Episode Timestamp                       | Notes                                                 |
+| ---- | ---------------- | ------- | --------------------------------------- | ----------------------------------------------------- |
+| #1   | Wendell Wilson   | 1 PB    | [#2 15:12](https://selfhosted.show/2)   | ZFS and Beehive                                       |
+| #2   | JDM              | 500 TB  | [#21 37:01](https://selfhosted.show/21) | Split between Unraid boxes                            |
+| #3   | Jeff Geerling    | 84 TB   | [#41 29:51](https://selfhosted.show/41) | 60 TB unallocated for projects                        |
+| #4   | Fuzzy Mistborn   | 70 TB   | [#70 11:28](https://selfhosted.show/70) | Debate about whether or not to count off-site storage |
+| #5   | Jake Howard      | 14 TB   | [#42 34:45](https://selfhosted.show/42) | Was hoping for lowest (golf) score!                   |
+| #6   | Paulus Schoutsen | 8 TB    | [#45 20:12](https://selfhosted.show/45) | Creator of the Home Assistant Project                 |
 
 ## Our other podcasts
 
