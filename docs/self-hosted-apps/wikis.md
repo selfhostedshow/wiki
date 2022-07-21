@@ -42,7 +42,7 @@ _[timestamp](https://selfhosted.show/12): 13:41-16:15_
 |Pros|Cons|
 |----|----|
 |Lots of people consider BookStack the "gold standard" of wikis|Could be spending a lot of time figuring out the best way for information to fit this structure.|
-|Divide notes into logical structure, which may not be applicable to all notes.|Image uploads may be a pain. Couldn't upload over 900x600 using container on a server.|
+|Divide notes into logical structure, which may not be applicable to all notes.|By default allowable upload file sizes are quite small. Instructions on how to modify this can be found in the [documentation](https://www.bookstackapp.com/docs/admin/upload-config/).|
 |Example usage: Shelf for servers, book for hardware, and chapters for specific servers.||
 
 ## Honorable mention: GitBook

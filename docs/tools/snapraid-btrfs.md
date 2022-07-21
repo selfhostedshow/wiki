@@ -263,7 +263,7 @@ Other config parameters of interest are as follows:
 - `snapraid-btrfs.cleanup`: Upon a successful run of snapraid-btrfs-runner, any interim snapshots created during the process will be removed, leaving only the `snapraid-btrfs=synced` snapshot. Defaults to `true`.
 - Other options specified at the Perfect Media Server installation guide.
 
-Scheduling can be set either via cron or SystemD timers. This guide provides a basic SystemD timer as follows.
+Scheduling can be set either via cron or systemd timers. This guide provides a basic systemd timer as follows.
 
 Contents of `/etc/systemd/system/snapraid-btrfs-runner.service`:
 
@@ -284,7 +284,7 @@ Description=Run snapraid-btrfs-runner every night
 
 [Timer]
 OnCalendar=*-*-* 03:00:00
-RandomizedDeleySec=30m
+RandomizedDelaySec=30m
 
 [Install]
 WantedBy=timers.target
@@ -293,8 +293,7 @@ WantedBy=timers.target
 Enable using:
 
 ```bash
-systemctl enable snapraid-btrfs-runner.timer
-systemctl start snapraid-btrfs-runner.timer
+systemctl enable snapraid-btrfs-runner.timer --now
 ```
 
 ## Online Data Drive Replacements
