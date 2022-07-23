@@ -17,8 +17,9 @@ The show is your gateway to self-hosting all the things. Discover new software t
 | #3   | Jeff Geerling    | 84 TB   | [#41 29:51](https://selfhosted.show/41) | 60 TB unallocated for projects                        |
 | #4   | Fuzzy Mistborn   | 70 TB   | [#70 11:28](https://selfhosted.show/70) | Debate about whether or not to count off-site storage |
 | #5   | Techno Tim       | 40 TB   | [#73 16:22](https://selfhosted.show/73) | Kubernetes and #100DaysOfHomeLab initiative           |
-| #6   | Jake Howard      | 14 TB   | [#42 34:45](https://selfhosted.show/42) | Was hoping for lowest (golf) score!                   |
-| #7   | Paulus Schoutsen | 8 TB    | [#45 20:12](https://selfhosted.show/45) | Creator of the Home Assistant Project                 |
+| #6   | Jscar_Hawk       | 20 TB   | [#74 36:34](https://selfhosted.show/74) | All the Pis                                           |
+| #7   | Jake Howard      | 14 TB   | [#42 34:45](https://selfhosted.show/42) | Was hoping for lowest (golf) score!                   |
+| #8   | Paulus Schoutsen | 8 TB    | [#45 20:12](https://selfhosted.show/45) | Creator of the Home Assistant Project                 |
 
 ## Our other podcasts
 
