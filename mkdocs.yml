@@ -1,4 +1,4 @@
-site_name: Self-Hosted Show Wiki
+site_name: Personal Documentation
 site_url: 
 repo_url: 
 theme:
@@ -10,32 +10,32 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: light
-      primary: 'amber'
-      accent: 'orange'
+      primary: 'light green'
+      accent: 'blue'
       toggle:
         icon: material/toggle-switch-off-outline
         name: Embrace the dark side
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: 'deep orange'
+      primary: 'blue grey'
       accent: 'amber'
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-extra:
-  # social:
-  #   - icon: 'fontawesome/brands/github'
-  #     link: 'https://github.com/selfhostedshow'
-  #   - icon: 'fontawesome/brands/twitter'
-  #     link: 'https://twitter.com/selfhostedshow'
-  #   - icon: 'fontawesome/solid/fire'
-  #     link: 'https://selfhosted.show/'
-  #   - icon: 'fontawesome/solid/graduation-cap'
-  #     link: 'https://linuxacademy.com'
-  #   - icon: 'fontawesome/brands/linux'
-  #     link: 'https://jupiterbroadcasting.com'
-  #   - icon: 'fontawesome/brands/discord'
-  #     link: 'https://discord.gg/n49fgkp'
+# extra:
+#   social:
+#     - icon: 'fontawesome/brands/github'
+#       link: 'https://github.com/selfhostedshow'
+#     - icon: 'fontawesome/brands/twitter'
+#       link: 'https://twitter.com/selfhostedshow'
+#     - icon: 'fontawesome/solid/fire'
+#       link: 'https://selfhosted.show/'
+#     - icon: 'fontawesome/solid/graduation-cap'
+#       link: 'https://linuxacademy.com'
+#     - icon: 'fontawesome/brands/linux'
+#       link: 'https://jupiterbroadcasting.com'
+#     - icon: 'fontawesome/brands/discord'
+#       link: 'https://discord.gg/n49fgkp'
 
 markdown_extensions:
   - admonition
@@ -46,6 +46,7 @@ markdown_extensions:
   - footnotes
   - mdx_include:
       base_path: docs
+  - attr_list
 
 plugins:
   - search
