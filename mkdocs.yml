@@ -1,6 +1,6 @@
 site_name: Self-Hosted Show Wiki
-site_url: https://wiki.selfhosted.show
-repo_url: https://github.com/selfhostedshow/wiki
+site_url: 
+repo_url: 
 theme:
   name: 'material'
   font:
@@ -23,19 +23,19 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 extra:
-  social:
-    - icon: 'fontawesome/brands/github'
-      link: 'https://github.com/selfhostedshow'
-    - icon: 'fontawesome/brands/twitter'
-      link: 'https://twitter.com/selfhostedshow'
-    - icon: 'fontawesome/solid/fire'
-      link: 'https://selfhosted.show/'
-    - icon: 'fontawesome/solid/graduation-cap'
-      link: 'https://linuxacademy.com'
-    - icon: 'fontawesome/brands/linux'
-      link: 'https://jupiterbroadcasting.com'
-    - icon: 'fontawesome/brands/discord'
-      link: 'https://discord.gg/n49fgkp'
+  # social:
+  #   - icon: 'fontawesome/brands/github'
+  #     link: 'https://github.com/selfhostedshow'
+  #   - icon: 'fontawesome/brands/twitter'
+  #     link: 'https://twitter.com/selfhostedshow'
+  #   - icon: 'fontawesome/solid/fire'
+  #     link: 'https://selfhosted.show/'
+  #   - icon: 'fontawesome/solid/graduation-cap'
+  #     link: 'https://linuxacademy.com'
+  #   - icon: 'fontawesome/brands/linux'
+  #     link: 'https://jupiterbroadcasting.com'
+  #   - icon: 'fontawesome/brands/discord'
+  #     link: 'https://discord.gg/n49fgkp'
 
 markdown_extensions:
   - admonition
