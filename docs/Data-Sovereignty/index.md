@@ -2,9 +2,9 @@
 title: Data Sovereignty
 summary: A section of the Wiki Dedicated to showcasing accessible methods of obtaining data sovereignty for individuals.
 authors:
--Rastacalavera
+- Rastacalavera
 ---
-# What is Data Self Sovereignty?
+## What is Data Self Sovereignty?
 In the simplest of terms, it means that the individual has complete control of any data they create in a digital space. Is it possible to have complete sovereignty over your data? No, but individuals can control aspects of self data sovereignty and make informed decisions surrounding the trade-offs between convenience and privacy/security.
 
 
