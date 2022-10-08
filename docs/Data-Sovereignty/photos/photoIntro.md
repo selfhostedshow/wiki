@@ -1,3 +1,10 @@
+---
+title: Why Bother With Your Own Cloud Photo Solution?
+summary: Explain why cloud photos only may not be a good approach
+authors:
+- Rastacalavera
+---
+
 # Why Bother With Your Own Cloud Photo Solution?
 
 Many people have invested time and effort into the Google ecosystem with the promise of free photo storage only to have that broken that promise[^1]. To expect a company to store photos and videos forever was a too good to be true mentality to begin with but this isn't the only transgression from Google in this space. Google also deactivated several people's accounts due to false CSAM flags triggered by images taken for telemedicine. A father had his life completely upended when Google not only deactived his account but also turned his entire Google history over to police without a warrant[^2]. To make a bad situation worse, after the father was cleared by police, Google still refused him access and informed him that his data was permanently deleted.
