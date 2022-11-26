@@ -29,9 +29,11 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 
 0. Click ![Fork](images/fork.png) in the top right to copy the "wiki" repository to your Github account.
 
+0. [Make sure you have ssh keys added to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
 0. Log in to your computer or server you are going to use for Git and `cd` to the directory you want to download the wiki repository to.
 
-0. Type `git clone https://github.com/GITHUBSUSERNAME/wiki && cd wiki`.
+0. Type `git clone git@github.com:selfhostedshow/wiki.git && cd wiki`.
 
 0. Verify the "master" branch is checked out type `git checkout master`.
 
@@ -80,10 +82,6 @@ This Section will "merge" the local changes to your fork (your github repo that 
 0. Type `git commit -m "updated x,y,z"` to commit the changes to your fork with comments.
 
 0. Type  `git push origin master` to push your commit to your fork.
-
-0. Type your username for github.
-
-0. Type your password for github.
 
 #### Make a New Pull Request on GitHub
 

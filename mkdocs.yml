@@ -46,11 +46,14 @@ markdown_extensions:
   - footnotes
   - mdx_include:
       base_path: docs
+  - attr_list
+  - md_in_html
 
 plugins:
   - search
   - minify:
       minify_html: true
+  - glightbox
 
 extra_css:
   - stylesheets/extra.css
