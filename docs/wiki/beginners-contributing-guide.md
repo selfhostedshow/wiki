@@ -33,7 +33,7 @@ This section will Fork the entire Self-Hosted Show wiki to your Github account, 
 
 0. Log in to your computer or server you are going to use for Git and `cd` to the directory you want to download the wiki repository to.
 
-0. Type `git clone git@github.com:selfhostedshow/wiki.git && cd wiki`.
+0. Type `git clone git@github.com:GITHUBSUSERNAME/wiki.git && cd wiki`.
 
 0. Verify the "master" branch is checked out type `git checkout master`.
 
