@@ -151,7 +151,7 @@ These records can be used to identify servers and distribute information.
 ### Registering
 
 You can purchase a domain from a variety of registrars like namecheap, among many others.
-Pricing and other related features (like web hosting, email, etc.) vary among them, but you pay a small annual fee (\$1 to \$75) for control of the domain.
+Pricing and other related features (like web hosting, email, etc.) vary among them, but you pay a small annual fee ($1 to $75) for control of the domain.
 
 <details>
 <summary>⚠️ privacy warning</summary>
