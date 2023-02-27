@@ -25,6 +25,6 @@ Bogus content two
     Per guidelines. Punctuation should not be used in the Title: for headings.
 
 !!! info
-    If you want to know how to create the note and info boxes. See [here](https://3os.org/markdownCheatSheet/admonition/)
-
-    Another useful [link](https://3os.org/markdownCheatSheet/welcome/)
+    [MdDocs-Material Reference](https://squidfunk.github.io/mkdocs-material/reference/admonitions/)  
+    [Markdown -- Github Help](https://help.github.com/en/github/writing-on-github)  
+    [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)    
