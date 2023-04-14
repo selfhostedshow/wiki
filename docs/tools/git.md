@@ -4,7 +4,7 @@ Git is version control software and is used to allow for collaborative projects.
 
 ## Our Analogy
 
-In this article we will be using the example of writing a book to illustrate how Git is used. This is not a perfect analogy, but it is one that makes Git easily understandable. To make the analogy better, we can assume that at all times the book needs to be in a valid state in much the same way that source code must. After all while Git can be used on any files it is deigned to be used on source code.
+In this article we will be using the example of writing a book to illustrate how Git is used. This is not a perfect analogy, but it is one that makes Git easily understandable. To make the analogy better, we can assume that at all times the book needs to be in a valid state in much the same way that source code must. After all while Git can be used on any files it is designed to be used on source code.
 
 Books start in an authors head. The author will then begin by writing down the first chapter. Over the course of days, weeks and months the author writes and revises over and over again, adding in new details, removing others, changing wordings, until finally the book is done. In theory, by tracking all the additions and deletions the author made to a book along the way and then applying them in the same order, you could recreate the book in its entirety. Not only could you recreate the finished book but you could reproduce the book at any point in its history as well. This is exactly what Git does, it tracks the changes that are made to files and allows for a history of a project as well.
 
