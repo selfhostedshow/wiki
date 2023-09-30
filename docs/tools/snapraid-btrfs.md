@@ -131,7 +131,7 @@ The entries for the BTRFS root filesystems in `/etc/fstab` can also be commented
 
 ## MergerFS
 
-The fstab steps for the MergerFS pool are unchanged from the Perfect Media Server installation guide. Create a `/mnt/storage` mountpoint and follow [fstab entries](https://perfectmediaserver.com/installation/manual-install-ubuntu/#fstab-entries) section of the guide.
+The fstab steps for the MergerFS pool are unchanged from the Perfect Media Server installation guide. Create a `/mnt/storage` mountpoint and follow [fstab entries](https://perfectmediaserver.com/03-installation/manual-install-ubuntu/#fstab-entries) section of the guide.
 
 ## SnapRAID setup
 
