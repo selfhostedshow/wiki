@@ -1,2 +1,2 @@
-mdx-include==1.3.3
+mdx-include
 mkdocs-glightbox
