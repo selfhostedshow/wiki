@@ -53,7 +53,6 @@ plugins:
   - search
   - minify:
       minify_html: true
-  - glightbox
 
 extra_css:
   - stylesheets/extra.css
