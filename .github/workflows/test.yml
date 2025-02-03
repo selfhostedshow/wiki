@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build containers
-      run: docker-compose build
+      run: docker compose build
 
     - name: Build site
       run: docker compose run wiki build --verbose --strict
