@@ -13,7 +13,7 @@ jobs:
       
       # Smoketest
       # - name: Build the wiki
-      #   run: docker-compose up -d
+      #   run: docker compose up -d
       # - name: Test container comes up and listens on port 8000
       #   run: docker run --network container:wiki_wiki_1 curlimages/curl -s --retry 10 --retry-connrefused http://localhost:8000/
       
@@ -33,7 +33,7 @@ jobs:
             USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
             PORT: ${{ secrets.WIKI_SSH_PORT }}
             KEY: ${{ secrets.SSHKEY }}
-            script: cd ${{ secrets.PROJECT_PATH }} && docker-compose run wiki build
+            script: cd ${{ secrets.PROJECT_PATH }} && docker compose run wiki build
 
       # Deploy
       - name: Deploy new image and cleanup
@@ -43,4 +43,4 @@ jobs:
             USERNAME: ${{ secrets.WIKI_DEPLOY_USER }}
             PORT: ${{ secrets.WIKI_SSH_PORT }}
             KEY: ${{ secrets.SSHKEY }}
-            script: docker-compose -f ~/docker-compose.yml up -d && docker image prune -af
+            script: docker compose -f ~/docker compose.yml up -d && docker image prune -af
