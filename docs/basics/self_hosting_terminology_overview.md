@@ -61,24 +61,32 @@ IP address work on a principal of private address (local internal network) and p
 #### IP Address Classes
 IP address are broken down in to different "classes", each class supports a different amount of networks and IPs, some have different uses like internal vs external IPs, there are lots of sites that will tell you what your [External IP](http://ifconfig.me/ip) is.
 
-| **Class** | **Address range** | **Number of possible addresses and networks** |
-| :-------------: | :----------: | :-----------: |
-| Class A | 1.0.0.1 - 126.255.255.254 | 16 million hosts on each of 127 networks |
-| Class B | 128.1.0.1 - 191.255.255.254 | 65,000 hosts on each of 16,000 networks |
-| Class C | 192.0.1.1 - 223.255.254.254 | 254 hosts on each of 2 million networks |
-| Class D | 192.0.1.1 - 223.255.254.254 | Reserved for multicast groups |
-| Class E | 240.0.0.0 - 254.255.255.254 | Reserved for future use, or research and development purposes |
+| **Class** | **Address range** | **Number of possible networks** |**Number of usable addresses** |
+| :-------------: | :----------: | :-----------: | :-----------: |
+| Class A | 1.0.0.0 - 126.255.255.255 | 126 networks | 16,777,214 hosts per network|
+| Class B | 128.0.0.0 - 191.255.255.255 | 16,382 networks | 65,534 hosts per network|
+| Class C | 192.0.0.0 - 223.255.255.255 | 2,097,150 networks | 254 hosts per network|
+| Class D | 224.0.0.0 - 239.255.255.255 | Reserved for multicast groups |Reserved for multicast groups|
+| Class E | 240.0.0.0 - 255.255.255.255 | Reserved for future use, or research and development purposes |Reserved for future use, or research and development purposes|
+
+> Note - the IP `0.0.0.0/8` block is reserved for the default network, and the `127.0.0.0/8` block is reserved for loopback addresses.  
+
+##### Two unusable addressed
+On every network 2 IP addresses won't be usable as they would be used for,
+1. **Network Address** - The last address on the network
+2. **Broadcast Address** - The last address on the network
+On a common home Network of `192.168.1.0/24` the IP Range is `192.168.1.0 - 192.168.1.255`. But usable will be `192.168.1.1 - 192.168.1.254` (254 devices). IP `192.168.1.0` will be used as Network Address and `192.168.1.255` will be used as Broadcast Address.
 
 #### Private Addresses (Internal)
 A private address will be anything on your local home network finding your private address is not hard if you know where to [look](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108).
 
 The table shows the list of *reserved* IPv4 space that is only used on internal networks, most home networks are going to have 192.168.1.1 address, using a 192.168.1.X address will allow for a total of 254 usable IP addresses (192.168.1.1-198.168.1.254). Per the table above the 192.168.1.1 address is a class C.
 
-| **IP address block** | **Address range** | **Number of possible addresses** |
+| **IP address block** | **Address range** | **Number of usable addresses** |
 | :-------------: | :----------: | :-----------: |
-| 10.0.0.0/8 | 10.0.0.0 – 10.255.255.255 | 16,777,216 |
-| 172.16.0.0/12  | 172.16.0.0 – 172.31.255.255 | 10,48,576 |
-| 192.168.0.0/16 | 192.168.0.0 – 192.168.255.255 | 65,536 |
+| 10.0.0.0/8 | 10.0.0.0 – 10.255.255.255 | 16,777,214 |
+| 172.16.0.0/12  | 172.16.0.0 – 172.31.255.255 | 10,48,574 |
+| 192.168.0.0/16 | 192.168.0.0 – 192.168.255.255 | 65,534 |
 
 #### Dynamic vs Static IP
 Dynamic IPs address are one of the ways IPs get "assigned" on network and can be external or internal, this is done automatically when new devices are plugged in to the network. IP address are given out (or set statically) using a network protocol called Dynamic Host Configuration protocol (DHCP).
